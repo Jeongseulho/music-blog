@@ -23,9 +23,4 @@ yarn-debug.log*
 yarn-error.log*
 
 # settings
-.eslintrc.json
-.prettierrc.json
-package-lock.json
-package.json
-postcss.config.js
-tailwind.config.js
+.vscode
