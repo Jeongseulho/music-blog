@@ -1,8 +1,8 @@
 import React from 'react';
-import PostBtn from '../components/PostBtn';
+import Post from '../components/Post';
 
 function Home() {
-  return <PostBtn />;
+  return <Post />;
 }
 
 export default Home;
