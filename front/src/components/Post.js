@@ -3,8 +3,8 @@ import PostBtn from './PostBtn';
 
 function Post() {
   return (
-    <div className=" flex flex-col">
-      <div className="flex h-80 w-full flex-col p-4 md:w-1/2 lg:w-1/4">
+    <div className=" m-4 flex flex-col">
+      <div className="flex h-80 w-full flex-col p-4">
         <div className="relative block h-48 overflow-hidden rounded">
           <img
             alt="ecommerce"

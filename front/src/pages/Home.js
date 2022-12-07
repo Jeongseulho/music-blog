@@ -1,8 +1,14 @@
 import React from 'react';
-import Post from '../components/Post';
+import PostList from '../components/PostList';
+import Header from '../components/Header';
 
 function Home() {
-  return <Post />;
+  return (
+    <>
+      <Header />
+      <PostList />
+    </>
+  );
 }
 
 export default Home;
