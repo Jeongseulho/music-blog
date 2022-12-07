@@ -11,6 +11,12 @@
   },
   "plugins": ["react", "tailwindcss"],
   "rules": {
+    "jsx-a11y/label-has-associated-control": [
+      2,
+      {
+        "labelAttributes": ["htmlFor"]
+      }
+    ],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "tailwindcss/classname-order": "off"
   },
