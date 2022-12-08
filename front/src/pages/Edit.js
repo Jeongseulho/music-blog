@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function Edit() {
+  const navigate = useNavigate();
   const [postInfo, setPostInfo] = useState({
     songTitle: '',
     singer: '',
@@ -10,7 +12,6 @@ function Edit() {
   const { songTitle, singer, content } = postInfo;
 
   const onChange = (e) => {
-    console.log(postInfo);
     setPostInfo((prevState) => ({
       ...prevState,
       [e.target.id]: e.target.value,
@@ -20,11 +21,20 @@ function Edit() {
   const addPost = async (e) => {
     e.preventDefault();
     try {
+      if (!songTitle) {
+        alert('song title is necessary');
+        return;
+      }
+      if (!singer) {
+        alert('singer is necessary');
+        return;
+      }
       const res = await axios.post('/post', {
         songTitle,
         singer,
         content,
       });
+      navigate('/');
       console.log(res);
     } catch (error) {
       console.error(error);
@@ -80,7 +90,7 @@ function Edit() {
                 htmlFor="content"
                 className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-blue-600 peer-focus:dark:text-blue-500"
               >
-                content
+                content(option)
               </label>
             </div>
           </div>
