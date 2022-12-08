@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import Post from './Post';
+import PreviewPost from './PreviewPost';
 
-function PostList() {
+function PreviewPostList() {
   const [PostInfoList, setPostInfoList] = useState([]);
 
   const getList = async () => {
@@ -21,7 +21,7 @@ function PostList() {
   return (
     <main className=" ml-24 flex flex-wrap">
       {PostInfoList.map((postInfo) => (
-        <Post
+        <PreviewPost
           key={postInfo.POST_ID}
           postId={postInfo.POST_ID}
           title={postInfo.TITLE}
@@ -33,4 +33,4 @@ function PostList() {
   );
 }
 
-export default PostList;
+export default PreviewPostList;

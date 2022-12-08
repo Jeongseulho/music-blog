@@ -1,7 +1,7 @@
 import React from 'react';
-import PostBtn from './PostBtn';
+import PreviewPostBtn from './PreviewPostBtn';
 
-function Post({ title, singer, date, postId }) {
+function PreviewPost({ title, singer, date, postId }) {
   return (
     <div className=" m-4 flex flex-col">
       <div className="flex h-80 w-full flex-col p-4">
@@ -18,9 +18,9 @@ function Post({ title, singer, date, postId }) {
           <p className="mt-1">{singer}</p>
         </div>
       </div>
-      <PostBtn postId={postId} />
+      <PreviewPostBtn postId={postId} />
     </div>
   );
 }
 
-export default Post;
+export default PreviewPost;

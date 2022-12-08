@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function PostBtn({ postId }) {
+function PreviewPostBtn({ postId }) {
   const navigate = useNavigate();
   return (
     <div className="inline-flex h-12 w-24 items-center rounded-md shadow-sm">
@@ -81,4 +81,4 @@ function PostBtn({ postId }) {
   );
 }
 
-export default PostBtn;
+export default PreviewPostBtn;

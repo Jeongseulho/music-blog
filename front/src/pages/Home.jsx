@@ -1,8 +1,8 @@
 import React from 'react';
-import PostList from '../components/PostList';
+import PreviewPostList from '../components/PreviewPostList';
 
 function Home() {
-  return <PostList />;
+  return <PreviewPostList />;
 }
 
 export default Home;
