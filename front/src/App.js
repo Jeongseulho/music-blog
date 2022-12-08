@@ -13,7 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/add-post" element={<AddPost />} />
-        <Route path="/view-post" element={<ViewPost />} />
+        <Route path="/view-post/:postId" element={<ViewPost />} />
       </Routes>
     </BrowserRouter>
   );

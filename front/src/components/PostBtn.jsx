@@ -1,6 +1,8 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
-function PostBtn() {
+function PostBtn({ postId }) {
+  const navigate = useNavigate();
   return (
     <div className="inline-flex h-12 w-24 items-center rounded-md shadow-sm">
       <button
@@ -27,6 +29,7 @@ function PostBtn() {
       </button>
       <button
         type="button"
+        onClick={() => navigate(`/view-post/${postId}`)}
         className="inline-flex items-center space-x-1 border-y border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-800 hover:bg-slate-100 hover:text-blue-600"
       >
         <span>

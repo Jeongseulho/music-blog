@@ -1,7 +1,7 @@
 import React from 'react';
 import PostBtn from './PostBtn';
 
-function Post({ title, singer, date }) {
+function Post({ title, singer, date, postId }) {
   return (
     <div className=" m-4 flex flex-col">
       <div className="flex h-80 w-full flex-col p-4">
@@ -18,7 +18,7 @@ function Post({ title, singer, date }) {
           <p className="mt-1">{singer}</p>
         </div>
       </div>
-      <PostBtn />
+      <PostBtn postId={postId} />
     </div>
   );
 }

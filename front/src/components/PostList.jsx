@@ -23,6 +23,7 @@ function PostList() {
       {PostInfoList.map((postInfo) => (
         <Post
           key={postInfo.POST_ID}
+          postId={postInfo.POST_ID}
           title={postInfo.TITLE}
           singer={postInfo.SINGER}
           date={postInfo.REGISTER_DATE}
