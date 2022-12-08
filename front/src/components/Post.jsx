@@ -13,9 +13,9 @@ function Post({ title, singer, date }) {
           />
         </div>
         <div className="mt-4">
-          <h3 className=" mb-1 text-xs tracking-widest text-gray-500">{title}</h3>
-          <h2 className=" text-lg font-medium text-gray-900">{singer}</h2>
-          <p className="mt-1">{date}</p>
+          <h3 className=" mb-1 text-xs tracking-widest text-gray-500">{date}</h3>
+          <h2 className=" text-lg font-medium text-gray-900">{title}</h2>
+          <p className="mt-1">{singer}</p>
         </div>
       </div>
       <PostBtn />

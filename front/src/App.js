@@ -2,7 +2,7 @@ import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import React from 'react';
 import Home from './pages/Home';
-import Edit from './pages/Edit';
+import AddPost from './pages/AddPost';
 import Header from './components/Header';
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/edit" element={<Edit />} />
+        <Route path="/edit" element={<AddPost />} />
       </Routes>
     </BrowserRouter>
   );
