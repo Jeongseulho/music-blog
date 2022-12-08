@@ -11,6 +11,8 @@
   },
   "plugins": ["react", "tailwindcss"],
   "rules": {
+    "react/prop-types": "off",
+    "no-alert": "off",
     "jsx-a11y/label-has-associated-control": [
       2,
       {

@@ -1,7 +1,7 @@
 import React from 'react';
 import PostBtn from './PostBtn';
 
-function Post() {
+function Post({ title, singer, date }) {
   return (
     <div className=" m-4 flex flex-col">
       <div className="flex h-80 w-full flex-col p-4">
@@ -13,9 +13,9 @@ function Post() {
           />
         </div>
         <div className="mt-4">
-          <h3 className=" mb-1 text-xs tracking-widest text-gray-500">PROJECT</h3>
-          <h2 className=" text-lg font-medium text-gray-900">The Catalyzer</h2>
-          <p className="mt-1">01/09/2022</p>
+          <h3 className=" mb-1 text-xs tracking-widest text-gray-500">{title}</h3>
+          <h2 className=" text-lg font-medium text-gray-900">{singer}</h2>
+          <p className="mt-1">{date}</p>
         </div>
       </div>
       <PostBtn />
