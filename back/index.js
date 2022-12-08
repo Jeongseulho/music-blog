@@ -41,7 +41,7 @@ app.post('/post', (req, res) => {
   const singer = req.body.singer;
   const content = req.body.content;
   const sqlQuery =
-    'INSERT INTO POSTINFO (title, singer, content) VALUES (?,?,?);';
+    'INSERT INTO POSTINFO (title, singer, content) VALUES (?,?,?)';
   db.query(sqlQuery, [title, singer, content], (err, result) => {
     res.send(result);
   });
@@ -50,6 +50,17 @@ app.post('/post', (req, res) => {
 app.get('/post/:postId', (req, res) => {
   const postId = req.params.postId;
   const sqlQuery = `SELECT* FROM POSTINFO WHERE postId = ${postId}`;
+  db.query(sqlQuery, (err, result) => {
+    res.send(result);
+  });
+});
+
+app.put('/post/:postId', (req, res) => {
+  const title = req.body.title;
+  const singer = req.body.singer;
+  const content = req.body.content;
+  const postId = req.body.postId;
+  const sqlQuery = `UPDATE POSTINFO SET title = '${title}', singer = '${singer}', content = '${content}' WHERE postId = ${postId}`;
   db.query(sqlQuery, (err, result) => {
     res.send(result);
   });

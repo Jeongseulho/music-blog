@@ -44,7 +44,7 @@ function EditPost() {
         alert('singer is necessary');
         return;
       }
-      const res = await axios.put('/post', {
+      const res = await axios.put(`/post/${postId}`, {
         title,
         singer,
         content,
