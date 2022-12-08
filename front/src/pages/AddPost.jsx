@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-function Edit() {
+function AddPost() {
   const navigate = useNavigate();
   const [postInfo, setPostInfo] = useState({
     title: '',
@@ -106,4 +106,4 @@ function Edit() {
   );
 }
 
-export default Edit;
+export default AddPost;
