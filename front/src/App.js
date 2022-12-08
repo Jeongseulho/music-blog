@@ -4,6 +4,7 @@ import React from 'react';
 import Home from './pages/Home';
 import AddPost from './pages/AddPost';
 import Header from './components/Header';
+import ViewPost from './pages/ViewPost';
 
 function App() {
   return (
@@ -11,7 +12,8 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/edit" element={<AddPost />} />
+        <Route path="/add-post" element={<AddPost />} />
+        <Route path="/view-post" element={<ViewPost />} />
       </Routes>
     </BrowserRouter>
   );
