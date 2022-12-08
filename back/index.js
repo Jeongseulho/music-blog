@@ -30,8 +30,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/list', (req, res) => {
-  const sqlQuery =
-    "SELECT POST_ID, TITLE, SINGER, CONTENT, USER_IP, (CASE WHEN INSTR(DATE_FORMAT(REGISTER_DATE, '%Y-%m-%d %p %h:%i'), 'PM') > 0 THEN REPLACE(DATE_FORMAT(REGISTER_DATE, '%Y-%m-%d %p %h:%i'), 'PM', '오후') ELSE REPLACE(DATE_FORMAT(REGISTER_DATE, '%Y-%m-%d %p %h:%i'), 'AM', '오전') END) AS REGISTER_DATE FROM POSTINFO";
+  const sqlQuery = 'SELECT* FROM POSTINFO';
   db.query(sqlQuery, (err, result) => {
     res.send(result);
   });
@@ -44,6 +43,14 @@ app.post('/post', (req, res) => {
   const sqlQuery =
     'INSERT INTO POSTINFO (TITLE, SINGER, CONTENT) VALUES (?,?,?);';
   db.query(sqlQuery, [songTitle, singer, content], (err, result) => {
+    res.send(result);
+  });
+});
+
+app.get('/post/:postId', (req, res) => {
+  const postId = req.params.postId;
+  const sqlQuery = `SELECT* FROM POSTINFO WHERE POST_ID = ${postId}`;
+  db.query(sqlQuery, (err, result) => {
     res.send(result);
   });
 });

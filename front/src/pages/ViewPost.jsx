@@ -1,6 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
+import formatDateTime from '../utils/formatDateTime';
 
 function ViewPost() {
+  const params = useParams();
+  const [postInfo, setPostInfo] = useState([]);
+
+  const getPost = async () => {
+    try {
+      const res = await axios.get(`/post/${params.postId}`);
+      setPostInfo(res.data[0]);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    getPost();
+  }, []);
+
   return (
     <div className=" flex flex-col items-center px-8 pt-10 ">
       <article className=" mb-4 flex w-full flex-col rounded-xl border-4 border-gray-600 bg-white bg-clip-border p-6 sm:w-3/6">
@@ -8,11 +27,13 @@ function ViewPost() {
           <div className="flex">
             <div className="flex flex-col">
               <div />
-              <div className="text-slate-500">날짜, 시간</div>
+              <div className="text-slate-500">{formatDateTime(postInfo.REGISTER_DATE)}</div>
             </div>
           </div>
         </div>
-        <h2 className="text-3xl font-extrabold">제목-가수</h2>
+        <h2 className="text-3xl font-extrabold">
+          {postInfo.TITLE} - {postInfo.SINGER}
+        </h2>
         <div className="py-4">
           <div className="mb-1 flex justify-between gap-1">
             <img
@@ -23,10 +44,7 @@ function ViewPost() {
           </div>
           <div className="flex justify-between gap-1" />
         </div>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-          ut labore et dolore magna aliqua.
-        </p>
+        <p>{postInfo.CONTENT}</p>
 
         <div className="relative pt-8 ">
           <input
@@ -45,9 +63,7 @@ function ViewPost() {
           <div className="flex pb-4">
             <div>
               <div>
-                <span className="mr-2 inline-block text-base font-bold" href="#">
-                  익명1
-                </span>
+                <span className="mr-2 inline-block text-base font-bold">익명1</span>
                 <span className="text-slate-500 dark:text-slate-300">25 minutes ago</span>
               </div>
               <p>댓글 내용</p>
