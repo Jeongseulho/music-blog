@@ -37,7 +37,7 @@ function Header() {
           </svg>
         </button>
         <div className="hidden w-full md:block md:w-auto" id="navbar-default">
-          <Link to="/edit">
+          <Link to="/add-post">
             <div className="mt-4 rounded-lg border border-gray-700 duration-500 hover:bg-gray-700">
               <button
                 type="button"

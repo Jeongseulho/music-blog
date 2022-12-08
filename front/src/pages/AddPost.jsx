@@ -96,7 +96,7 @@ function Edit() {
           </div>
           <button
             type="submit"
-            className="mt-5 rounded-md bg-gray-700 px-10 py-2 text-white hover:bg-black"
+            className="mt-5 rounded-md bg-gray-700 px-10 py-2 text-white duration-500 hover:bg-black"
           >
             posting
           </button>
