@@ -27,7 +27,9 @@ function ViewPost() {
           <div className="flex">
             <div className="flex flex-col">
               <div />
-              <div className="text-slate-500">{formatDateTime(postInfo.REGISTER_DATE)}</div>
+              <div className="text-slate-500">
+                {postInfo.REGISTER_DATE && formatDateTime(postInfo.REGISTER_DATE)}
+              </div>
             </div>
           </div>
         </div>

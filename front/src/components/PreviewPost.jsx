@@ -1,15 +1,21 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import PreviewPostBtn from './PreviewPostBtn';
 import formatDateTime from '../utils/formatDateTime';
 
 function PreviewPost({ title, singer, date, postId }) {
+  const navigate = useNavigate();
   return (
     <div className=" m-4 flex flex-col">
-      <div className="flex h-80 w-full flex-col p-4">
+      <div
+        className="flex h-80 w-full cursor-pointer flex-col p-4"
+        role="presentation"
+        onClick={() => navigate(`/view-post/${postId}`)}
+      >
         <div className="relative block h-48 overflow-hidden rounded">
           <img
             alt="ecommerce"
-            className="block h-full w-full cursor-pointer object-cover object-center"
+            className="block h-full w-full object-cover object-center"
             src="https://dummyimage.com/420x260"
           />
         </div>
