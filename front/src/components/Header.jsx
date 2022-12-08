@@ -38,7 +38,7 @@ function Header() {
         </button>
         <div className="hidden w-full md:block md:w-auto" id="navbar-default">
           <Link to="/edit">
-            <div className="mt-4 rounded-lg border border-gray-700 hover:bg-gray-500">
+            <div className="mt-4 rounded-lg border border-gray-700 duration-500 hover:bg-gray-700">
               <button
                 type="button"
                 className="block rounded py-2 pl-3 pr-4 text-gray-700 hover:text-gray-100"
