@@ -5,7 +5,15 @@ import formatDateTime from '../utils/formatDateTime';
 
 function ViewPost() {
   const params = useParams();
-  const [postInfo, setPostInfo] = useState([]);
+  const [postInfo, setPostInfo] = useState([
+    {
+      title: '',
+      singer: '',
+      content: '',
+      registerDate: '',
+    },
+  ]);
+  const { title, singer, content, registerDate } = postInfo;
 
   const getPost = async () => {
     try {
@@ -27,14 +35,12 @@ function ViewPost() {
           <div className="flex">
             <div className="flex flex-col">
               <div />
-              <div className="text-slate-500">
-                {postInfo.REGISTER_DATE && formatDateTime(postInfo.REGISTER_DATE)}
-              </div>
+              <div className="text-slate-500">{registerDate && formatDateTime(registerDate)}</div>
             </div>
           </div>
         </div>
         <h2 className="text-3xl font-extrabold">
-          {postInfo.TITLE} - {postInfo.SINGER}
+          {title} - {singer}
         </h2>
         <div className="py-4">
           <div className="mb-1 flex justify-between gap-1">
@@ -46,7 +52,7 @@ function ViewPost() {
           </div>
           <div className="flex justify-between gap-1" />
         </div>
-        <p>{postInfo.CONTENT}</p>
+        <p>{content}</p>
 
         <div className="relative pt-8 ">
           <input

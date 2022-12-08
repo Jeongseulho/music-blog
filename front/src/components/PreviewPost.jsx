@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import PreviewPostBtn from './PreviewPostBtn';
 import formatDateTime from '../utils/formatDateTime';
 
-function PreviewPost({ title, singer, date, postId }) {
+function PreviewPost({ title, singer, registerDate, postId }) {
   return (
     <div className=" m-4 flex flex-col">
       <Link to={`/view-post/${postId}`}>
@@ -16,7 +16,9 @@ function PreviewPost({ title, singer, date, postId }) {
             />
           </div>
           <div className="mt-4">
-            <h3 className=" mb-1 text-xs tracking-widest text-gray-500">{formatDateTime(date)}</h3>
+            <h3 className=" mb-1 text-xs tracking-widest text-gray-500">
+              {formatDateTime(registerDate)}
+            </h3>
             <h2 className=" text-lg font-medium text-gray-900">{title}</h2>
             <p className="mt-1">{singer}</p>
           </div>

@@ -37,19 +37,19 @@ app.get('/list', (req, res) => {
 });
 
 app.post('/post', (req, res) => {
-  const songTitle = req.body.songTitle;
+  const title = req.body.title;
   const singer = req.body.singer;
   const content = req.body.content;
   const sqlQuery =
-    'INSERT INTO POSTINFO (TITLE, SINGER, CONTENT) VALUES (?,?,?);';
-  db.query(sqlQuery, [songTitle, singer, content], (err, result) => {
+    'INSERT INTO POSTINFO (title, singer, content) VALUES (?,?,?);';
+  db.query(sqlQuery, [title, singer, content], (err, result) => {
     res.send(result);
   });
 });
 
 app.get('/post/:postId', (req, res) => {
   const postId = req.params.postId;
-  const sqlQuery = `SELECT* FROM POSTINFO WHERE POST_ID = ${postId}`;
+  const sqlQuery = `SELECT* FROM POSTINFO WHERE postId = ${postId}`;
   db.query(sqlQuery, (err, result) => {
     res.send(result);
   });

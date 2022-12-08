@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import AddPost from './pages/AddPost';
 import Header from './components/Header';
 import ViewPost from './pages/ViewPost';
+import EditPost from './pages/EditPost';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/add-post" element={<AddPost />} />
         <Route path="/view-post/:postId" element={<ViewPost />} />
+        <Route path="/edit-post/:postId" element={<EditPost />} />
       </Routes>
     </BrowserRouter>
   );
