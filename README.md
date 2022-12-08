@@ -30,7 +30,7 @@
 
 ## 🔧 기술 스택
 
-<img src="https://img.shields.io/badge/react-61DAFB?style=flat&logo=react&logoColor=black"><img src="https://img.shields.io/badge/Redux-764ABC?style=flat&logo=Redux&logoColor=black"> <img src="https://img.shields.io/badge/React Query-FF4154?style=flat&logo=React Query&logoColor=black"> <img src="https://img.shields.io/badge/Tailwind CSS-06B6D4?style=flat&logo=Tailwind CSS&logoColor=black"> <img src="https://img.shields.io/badge/Node.js-339933?style=flat&logo=Node.js&logoColor=yellow"> <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=MySQL&logoColor=black">
+<img src="https://img.shields.io/badge/react-61DAFB?style=flat&logo=react&logoColor=black"> <img src="https://img.shields.io/badge/Redux-764ABC?style=flat&logo=Redux&logoColor=black"> <img src="https://img.shields.io/badge/React Query-FF4154?style=flat&logo=React Query&logoColor=black"> <img src="https://img.shields.io/badge/Tailwind CSS-06B6D4?style=flat&logo=Tailwind CSS&logoColor=black"> <img src="https://img.shields.io/badge/Node.js-339933?style=flat&logo=Node.js&logoColor=yellow"> <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=MySQL&logoColor=black">
 
 ## 📂 디렉토리 구조
 
