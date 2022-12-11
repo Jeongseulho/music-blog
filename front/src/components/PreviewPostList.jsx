@@ -1,25 +1,24 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import PreviewPost from './PreviewPost';
-import getList from '../api/getList';
+import PreviewPostBtn from './PreviewPostBtn';
+import usePreviewPostList from '../hooks/usePreviewPostList';
 
 function PreviewPostList() {
-  const [PostInfoList, setPostInfoList] = useState([]);
+  const postInfoList = usePreviewPostList();
 
-  useEffect(() => {
-    getList().then((res) => {
-      setPostInfoList(res.data);
-    });
-  }, []);
   return (
     <main className=" ml-24 flex flex-wrap">
-      {PostInfoList.map((postInfo) => (
-        <PreviewPost
-          key={postInfo.postId}
-          postId={postInfo.postId}
-          title={postInfo.title}
-          singer={postInfo.singer}
-          registerDate={postInfo.registerDate}
-        />
+      {postInfoList.map((postInfo) => (
+        <>
+          <PreviewPost
+            key={postInfo.postId}
+            postId={postInfo.postId}
+            title={postInfo.title}
+            singer={postInfo.singer}
+            registerDate={postInfo.registerDate}
+          />
+          <PreviewPostBtn postId={postInfo.postId} />
+        </>
       ))}
     </main>
   );

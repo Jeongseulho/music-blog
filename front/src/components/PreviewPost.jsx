@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import PreviewPostBtn from './PreviewPostBtn';
 import formatDateTime from '../utils/formatDateTime';
 
 function PreviewPost({ title, singer, registerDate, postId }) {
@@ -24,7 +23,6 @@ function PreviewPost({ title, singer, registerDate, postId }) {
           </div>
         </div>
       </Link>
-      <PreviewPostBtn postId={postId} />
     </div>
   );
 }
