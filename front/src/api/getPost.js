@@ -5,7 +5,6 @@ async function getPost(postId) {
     const res = await axios.get(`/post/${postId}`);
     return res;
   } catch (error) {
-    console.error(error);
     return null;
   }
 }
