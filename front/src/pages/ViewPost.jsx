@@ -1,25 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import React from 'react';
 import formatDateTime from '../utils/formatDateTime';
-import getPost from '../api/getPost';
+import useViewPost from '../hooks/useViewPost';
 
 function ViewPost() {
-  const params = useParams();
-  const [postInfo, setPostInfo] = useState([
-    {
-      title: '',
-      singer: '',
-      content: '',
-      registerDate: '',
-    },
-  ]);
+  const postInfo = useViewPost();
   const { title, singer, content, registerDate } = postInfo;
-
-  useEffect(() => {
-    getPost(params.postId).then((res) => {
-      setPostInfo(res.data[0]);
-    });
-  }, []);
 
   return (
     <div className=" flex flex-col items-center px-8 pt-10 ">
