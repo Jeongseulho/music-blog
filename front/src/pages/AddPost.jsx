@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import postNewPost from '../api/postNewPost';
 
 function AddPost() {
   const navigate = useNavigate();
@@ -9,6 +9,8 @@ function AddPost() {
     singer: '',
     content: '',
   });
+
+  // eslint-disable-next-line no-unused-vars
   const { title, singer, content } = postInfo;
 
   const onChange = (e) => {
@@ -29,13 +31,8 @@ function AddPost() {
         alert('singer is necessary');
         return;
       }
-      const res = await axios.post('/post', {
-        title,
-        singer,
-        content,
-      });
+      postNewPost(postInfo);
       navigate('/');
-      console.log(res);
     } catch (error) {
       console.error(error);
     }
