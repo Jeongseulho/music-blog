@@ -19,20 +19,17 @@ function useAddPost() {
 
   const addPost = async (e) => {
     e.preventDefault();
-    try {
-      if (!postInfo.title) {
-        alert('song title is necessary');
-        return;
-      }
-      if (!postInfo.singer) {
-        alert('singer is necessary');
-        return;
-      }
-      postNewPost(postInfo);
-      navigate('/');
-    } catch (error) {
-      console.error(error);
+    if (!postInfo.title) {
+      alert('song title is necessary');
+      return;
     }
+    if (!postInfo.singer) {
+      alert('singer is necessary');
+      return;
+    }
+    const res = postNewPost(postInfo);
+    if (res === null) return;
+    navigate('/');
   };
 
   return {

@@ -27,20 +27,17 @@ function useEditPost() {
 
   const editPost = async (e) => {
     e.preventDefault();
-    try {
-      if (!postInfo.title) {
-        alert('song title is necessary');
-        return;
-      }
-      if (!postInfo.singer) {
-        alert('singer is necessary');
-        return;
-      }
-      putPost(params.postId, postInfo);
-      navigate(`/view-post/${params.postId}`);
-    } catch (error) {
-      console.error(error);
+    if (!postInfo.title) {
+      alert('song title is necessary');
+      return;
     }
+    if (!postInfo.singer) {
+      alert('singer is necessary');
+      return;
+    }
+    const res = putPost(params.postId, postInfo);
+    if (res === null) return;
+    navigate(`/view-post/${params.postId}`);
   };
 
   return { postInfo, onChange, editPost };
