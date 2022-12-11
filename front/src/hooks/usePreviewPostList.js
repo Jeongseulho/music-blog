@@ -5,8 +5,8 @@ function usePreviewPostList() {
   const [postInfoList, setPostInfoList] = useState([]);
 
   useEffect(() => {
-    getList().then((res) => {
-      setPostInfoList(res.data);
+    getList().then((data) => {
+      setPostInfoList(data);
     });
   }, []);
 

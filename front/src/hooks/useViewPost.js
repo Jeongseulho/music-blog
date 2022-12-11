@@ -14,8 +14,8 @@ function useViewPost() {
   ]);
 
   useEffect(() => {
-    getPost(params.postId).then((res) => {
-      setPostInfo(res.data[0]);
+    getPost(params.postId).then((data) => {
+      setPostInfo(data);
     });
   }, []);
 

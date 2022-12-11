@@ -3,7 +3,7 @@ import axios from 'axios';
 async function getPost(postId) {
   try {
     const res = await axios.get(`/post/${postId}`);
-    return res;
+    return res.data[0];
   } catch (error) {
     console.error(error);
     return null;
