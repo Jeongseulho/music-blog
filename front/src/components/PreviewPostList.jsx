@@ -9,16 +9,16 @@ function PreviewPostList() {
   return (
     <main className=" ml-24 flex flex-wrap">
       {postInfoList.map((postInfo) => (
-        <>
-          <PreviewPost
-            key={postInfo.postId}
-            postId={postInfo.postId}
-            title={postInfo.title}
-            singer={postInfo.singer}
-            registerDate={postInfo.registerDate}
-          />
-          <PreviewPostBtn postId={postInfo.postId} />
-        </>
+        <PreviewPost
+          key={postInfo.postId}
+          postId={postInfo.postId}
+          title={postInfo.title}
+          singer={postInfo.singer}
+          registerDate={postInfo.registerDate}
+        />
+      ))}
+      {postInfoList.map((postInfo) => (
+        <PreviewPostBtn key={postInfo.postId} postId={postInfo.postId} />
       ))}
     </main>
   );
