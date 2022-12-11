@@ -1,6 +1,5 @@
 import React from 'react';
 import PreviewPost from './PreviewPost';
-import PreviewPostBtn from './PreviewPostBtn';
 import usePreviewPostList from '../hooks/usePreviewPostList';
 
 function PreviewPostList() {
@@ -16,9 +15,6 @@ function PreviewPostList() {
           singer={postInfo.singer}
           registerDate={postInfo.registerDate}
         />
-      ))}
-      {postInfoList.map((postInfo) => (
-        <PreviewPostBtn key={postInfo.postId} postId={postInfo.postId} />
       ))}
     </main>
   );
