@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import axios from 'axios';
 import formatDateTime from '../utils/formatDateTime';
+import getPost from '../api/getPost';
 
 function ViewPost() {
   const params = useParams();
@@ -15,17 +15,10 @@ function ViewPost() {
   ]);
   const { title, singer, content, registerDate } = postInfo;
 
-  const getPost = async () => {
-    try {
-      const res = await axios.get(`/post/${params.postId}`);
-      setPostInfo(res.data[0]);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
   useEffect(() => {
-    getPost();
+    getPost(params.postId).then((res) => {
+      setPostInfo(res.data[0]);
+    });
   }, []);
 
   return (
