@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
+import putPost from '../api/putPost';
+import getPost from '../api/getPost';
 
 function EditPost() {
   const navigate = useNavigate();
@@ -20,17 +21,10 @@ function EditPost() {
     }));
   };
 
-  const getPost = async () => {
-    try {
-      const res = await axios.get(`/post/${postId}`);
-      setPostInfo(res.data[0]);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
   useEffect(() => {
-    getPost();
+    getPost(params.postId).then((res) => {
+      setPostInfo(res.data[0]);
+    });
   }, []);
 
   const editPost = async (e) => {
@@ -44,14 +38,8 @@ function EditPost() {
         alert('singer is necessary');
         return;
       }
-      const res = await axios.put(`/post/${postId}`, {
-        title,
-        singer,
-        content,
-        postId,
-      });
+      putPost(postId, postInfo);
       navigate(`/view-post/${postId}`);
-      console.log(res);
     } catch (error) {
       console.error(error);
     }
