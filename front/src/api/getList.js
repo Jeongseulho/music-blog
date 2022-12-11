@@ -5,7 +5,6 @@ async function getList() {
     const res = await axios.get('/list');
     return res;
   } catch (error) {
-    console.error(error);
     return null;
   }
 }
