@@ -20,8 +20,8 @@ function useEditPost() {
   };
 
   useEffect(() => {
-    getPost(params.postId).then((data) => {
-      setPostInfo(data);
+    getPost(params.postId).then((res) => {
+      setPostInfo(res.data[0]);
     });
   }, []);
 
