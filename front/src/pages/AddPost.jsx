@@ -1,42 +1,8 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import postNewPost from '../api/postNewPost';
+import React from 'react';
+import useAddPost from '../hooks/useAddPost';
 
 function AddPost() {
-  const navigate = useNavigate();
-  const [postInfo, setPostInfo] = useState({
-    title: '',
-    singer: '',
-    content: '',
-  });
-
-  // eslint-disable-next-line no-unused-vars
-  const { title, singer, content } = postInfo;
-
-  const onChange = (e) => {
-    setPostInfo((prevState) => ({
-      ...prevState,
-      [e.target.id]: e.target.value,
-    }));
-  };
-
-  const addPost = async (e) => {
-    e.preventDefault();
-    try {
-      if (!title) {
-        alert('song title is necessary');
-        return;
-      }
-      if (!singer) {
-        alert('singer is necessary');
-        return;
-      }
-      postNewPost(postInfo);
-      navigate('/');
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  const { onChange, addPost } = useAddPost();
 
   return (
     <div className="flex items-center justify-start bg-white">

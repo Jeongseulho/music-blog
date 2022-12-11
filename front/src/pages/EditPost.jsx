@@ -1,49 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import putPost from '../api/putPost';
-import getPost from '../api/getPost';
+import React from 'react';
+import useEditPost from '../hooks/useEditPost';
 
 function EditPost() {
-  const navigate = useNavigate();
-  const params = useParams();
-  const [postInfo, setPostInfo] = useState({
-    title: '',
-    singer: '',
-    content: '',
-    postId: params.postId,
-  });
-  const { title, singer, content, postId } = postInfo;
-
-  const onChange = (e) => {
-    setPostInfo((prevState) => ({
-      ...prevState,
-      [e.target.id]: e.target.value,
-    }));
-  };
-
-  useEffect(() => {
-    getPost(params.postId).then((res) => {
-      setPostInfo(res.data[0]);
-    });
-  }, []);
-
-  const editPost = async (e) => {
-    e.preventDefault();
-    try {
-      if (!title) {
-        alert('song title is necessary');
-        return;
-      }
-      if (!singer) {
-        alert('singer is necessary');
-        return;
-      }
-      putPost(postId, postInfo);
-      navigate(`/view-post/${postId}`);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  const { postInfo, onChange, editPost } = useEditPost();
+  const { title, singer, content } = postInfo;
 
   return (
     <div className="flex items-center justify-start bg-white">
