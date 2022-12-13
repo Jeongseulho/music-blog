@@ -2,14 +2,14 @@ import React from 'react';
 import useEditPost from '../hooks/useEditPost';
 
 function EditPost() {
-  const { postInfo, onChange, editPost } = useEditPost();
+  const { postInfo, onChange, onEditPost } = useEditPost();
   const { title, singer, content } = postInfo;
 
   return (
     <div className="flex items-center justify-start bg-white">
       <div className="mx-auto w-full max-w-lg">
         <h1 className="text-4xl font-medium">post your recommended song</h1>
-        <form onSubmit={editPost} className="mt-10" autoComplete="off">
+        <form onSubmit={onEditPost} className="mt-10" autoComplete="off">
           <div className="grid gap-6 sm:grid-cols-2">
             <div className="relative z-0">
               <input

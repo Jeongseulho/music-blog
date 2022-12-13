@@ -17,7 +17,7 @@ function useAddPost() {
     }));
   };
 
-  const addPost = async (e) => {
+  const onAddPost = async (e) => {
     e.preventDefault();
     if (!postInfo.title) {
       alert('song title is necessary');
@@ -34,7 +34,7 @@ function useAddPost() {
 
   return {
     onChange,
-    addPost,
+    onAddPost,
   };
 }
 

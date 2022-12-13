@@ -25,7 +25,7 @@ function useEditPost() {
     });
   }, []);
 
-  const editPost = async (e) => {
+  const onEditPost = async (e) => {
     e.preventDefault();
     if (!postInfo.title) {
       alert('song title is necessary');
@@ -40,7 +40,7 @@ function useEditPost() {
     navigate(`/view-post/${params.postId}`);
   };
 
-  return { postInfo, onChange, editPost };
+  return { postInfo, onChange, onEditPost };
 }
 
 export default useEditPost;
