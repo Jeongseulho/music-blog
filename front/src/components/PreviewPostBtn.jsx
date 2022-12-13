@@ -1,8 +1,8 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import usePreviewPostBtn from '../hooks/usePreviewPostBtn';
 
 function PreviewPostBtn({ postId }) {
-  const navigate = useNavigate();
+  const navigate = usePreviewPostBtn();
   return (
     <div className="inline-flex h-12 w-24 items-center rounded-md shadow-sm">
       <button
