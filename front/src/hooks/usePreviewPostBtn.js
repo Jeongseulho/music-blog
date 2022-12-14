@@ -12,8 +12,10 @@ function usePreviewPostBtn() {
     }
   };
 
-  const onDeletePostFromState = (prevState, postId) =>
-    prevState.filter((postInfo) => postInfo.postId !== postId);
+  const onDeletePostFromState = (prevState, postId) => {
+    const deletedPostInfoList = prevState.filter((postInfo) => postInfo.postId !== postId);
+    return deletedPostInfoList;
+  };
 
   return { navigate, onDeletePost, onDeletePostFromState };
 }
