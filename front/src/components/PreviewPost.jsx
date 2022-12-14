@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import formatDateTime from '../utils/formatDateTime';
 import PreviewPostBtn from './PreviewPostBtn';
 
-function PreviewPost({ title, singer, registerDate, postId }) {
+function PreviewPost({ title, singer, registerDate, postId, setPostInfoList }) {
   return (
     <div className=" m-4 flex flex-col">
       <Link to={`/view-post/${postId}`}>
@@ -24,7 +24,7 @@ function PreviewPost({ title, singer, registerDate, postId }) {
           </div>
         </div>
       </Link>
-      <PreviewPostBtn postId={postId} />
+      <PreviewPostBtn postId={postId} setPostInfoList={setPostInfoList} />
     </div>
   );
 }

@@ -10,7 +10,7 @@ function usePreviewPostList() {
     });
   }, []);
 
-  return postInfoList;
+  return { postInfoList, setPostInfoList };
 }
 
 export default usePreviewPostList;

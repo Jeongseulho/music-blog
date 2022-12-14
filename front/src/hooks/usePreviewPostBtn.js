@@ -12,7 +12,10 @@ function usePreviewPostBtn() {
     }
   };
 
-  return { navigate, onDeletePost };
+  const onDeletePostFromState = (prevState, postId) =>
+    prevState.filter((postInfo) => postInfo.postId !== postId);
+
+  return { navigate, onDeletePost, onDeletePostFromState };
 }
 
 export default usePreviewPostBtn;

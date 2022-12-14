@@ -3,7 +3,7 @@ import PreviewPost from './PreviewPost';
 import usePreviewPostList from '../hooks/usePreviewPostList';
 
 function PreviewPostList() {
-  const postInfoList = usePreviewPostList();
+  const { postInfoList, setPostInfoList } = usePreviewPostList();
 
   return (
     <main className=" ml-24 flex flex-wrap">
@@ -14,6 +14,7 @@ function PreviewPostList() {
           title={postInfo.title}
           singer={postInfo.singer}
           registerDate={postInfo.registerDate}
+          setPostInfoList={setPostInfoList}
         />
       ))}
     </main>
