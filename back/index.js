@@ -65,3 +65,12 @@ app.put('/post/:postId', (req, res) => {
     res.send(result);
   });
 });
+
+app.delete('/post/:postId', (req, res) => {
+  const postId = req.params.postId;
+  const sqlQuery = `DELETE FROM POSTINFO WHERE postId=${postId}`;
+  db.query(sqlQuery, (err, result) => {
+    console.log(result);
+    res.send(result);
+  });
+});

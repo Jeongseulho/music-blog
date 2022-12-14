@@ -2,7 +2,7 @@ import React from 'react';
 import usePreviewPostBtn from '../hooks/usePreviewPostBtn';
 
 function PreviewPostBtn({ postId }) {
-  const navigate = usePreviewPostBtn();
+  const { navigate, onDeletePost } = usePreviewPostBtn();
   return (
     <div className="inline-flex h-12 w-24 items-center rounded-md shadow-sm">
       <button
@@ -30,6 +30,9 @@ function PreviewPostBtn({ postId }) {
       </button>
       <button
         type="button"
+        onClick={(e) => {
+          onDeletePost(e, postId);
+        }}
         className="inline-flex items-center space-x-1 rounded-r-lg border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-800 hover:bg-slate-100 hover:text-blue-600"
       >
         <span>
