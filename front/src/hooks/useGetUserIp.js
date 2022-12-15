@@ -1,16 +1,13 @@
-import { useState, useEffect } from 'react';
-import getUserIp from '../api/getUserIp';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { getUserIpThunk } from '../redux/userIpSlice';
 
 function useGetUserIp() {
-  const [userIp, setUserIp] = useState();
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    getUserIp().then((res) => {
-      setUserIp(res.data.IPv4);
-    });
+    dispatch(getUserIpThunk());
   }, []);
-
-  return { userIp, setUserIp };
 }
 
 export default useGetUserIp;
