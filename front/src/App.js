@@ -7,6 +7,7 @@ import Header from './components/Header';
 import ViewPost from './pages/ViewPost';
 import EditPost from './pages/EditPost';
 import useGetUserIp from './hooks/useGetUserIp';
+import PrivateRoute from './components/PrivateRoute';
 
 function App() {
   useGetUserIp();
@@ -17,7 +18,9 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/add-post" element={<AddPost />} />
         <Route path="/view-post/:postId" element={<ViewPost />} />
-        <Route path="/edit-post/:postId" element={<EditPost />} />
+        <Route path="/edit-post" element={<PrivateRoute />}>
+          <Route path="/edit-post/:postId" element={<EditPost />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );

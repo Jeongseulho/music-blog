@@ -13,6 +13,7 @@ function PreviewPostList() {
           postId={postInfo.postId}
           title={postInfo.title}
           singer={postInfo.singer}
+          userIp={postInfo.userIp}
           registerDate={postInfo.registerDate}
           setPostInfoList={setPostInfoList}
         />
