@@ -1,6 +1,7 @@
 import axios from 'axios';
 import getList from '../api/getList';
 import getPost from '../api/getPost';
+import postNewPost from '../api/postNewPost';
 
 jest.mock('axios');
 
@@ -59,7 +60,6 @@ describe('axios Test', () => {
 
     test('when success, return postInfo', async () => {
       // given
-
       const res = {
         data: [
           {
@@ -80,7 +80,7 @@ describe('axios Test', () => {
 
       // then
       await expect(result).resolves.toEqual(res);
-      expect(axios.get).toHaveBeenCalledWith('/post/1');
+      expect(axios.get).toHaveBeenCalledWith(`/post/${postId}`);
     });
 
     test('when fail, return null', async () => {
@@ -94,7 +94,45 @@ describe('axios Test', () => {
 
       // then
       await expect(result).resolves.toEqual(null);
-      expect(axios.get).toHaveBeenCalledWith('/post/1');
+      expect(axios.get).toHaveBeenCalledWith(`/post/${postId}`);
+    });
+  });
+
+  describe('postNewPost test', () => {
+    const postInfo = {
+      title: 'titleTest',
+      singer: 'singerTest',
+      content: 'contentTest',
+    };
+
+    test('when success, return 200 code', async () => {
+      // given
+      const res = {
+        response: { status: 200 },
+      };
+
+      axios.post.mockImplementationOnce(() => Promise.resolve(res));
+
+      // when
+      const result = postNewPost(postInfo);
+
+      // then
+      await expect(result).resolves.toEqual(res);
+      expect(axios.post).toHaveBeenCalledWith(`/post`, postInfo);
+    });
+
+    test('when fail, return null', async () => {
+      // given
+      const errorMsg = 'Network Error';
+
+      axios.post.mockImplementationOnce(() => Promise.reject(new Error(errorMsg)));
+
+      // when
+      const result = postNewPost(postInfo);
+
+      // then
+      await expect(result).resolves.toEqual(null);
+      expect(axios.post).toHaveBeenCalledWith(`/post`, postInfo);
     });
   });
 });
