@@ -6,8 +6,12 @@ import AddPost from './pages/AddPost';
 import Header from './components/Header';
 import ViewPost from './pages/ViewPost';
 import EditPost from './pages/EditPost';
+import useGetUserIp from './hooks/useGetUserIp';
 
 function App() {
+  const { userIp, setUserIp } = useGetUserIp();
+  console.log(userIp);
+  console.log(setUserIp);
   return (
     <BrowserRouter>
       <Header />
