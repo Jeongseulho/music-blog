@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import formatDateTime from '../utils/formatDateTime';
 import PreviewPostBtn from './PreviewPostBtn';
 
-function PreviewPost({ title, singer, registerDate, postId, setPostInfoList }) {
+function PreviewPost({ title, singer, registerDate, postId, userIp, setPostInfoList }) {
+  const currentUserIp = useSelector((state) => state.userIp.value);
   return (
     <div className=" m-4 flex flex-col rounded-md border border-gray-600 pb-4">
       <div className="flex h-80 w-full flex-col p-4">
@@ -24,7 +26,9 @@ function PreviewPost({ title, singer, registerDate, postId, setPostInfoList }) {
         </Link>
         <div className="mt-1">
           <p>{singer}</p>
-          <PreviewPostBtn postId={postId} setPostInfoList={setPostInfoList} />
+          {currentUserIp === userIp && (
+            <PreviewPostBtn postId={postId} setPostInfoList={setPostInfoList} />
+          )}
         </div>
       </div>
     </div>
