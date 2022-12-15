@@ -2,6 +2,7 @@ import axios from 'axios';
 import getList from '../api/getList';
 import getPost from '../api/getPost';
 import postNewPost from '../api/postNewPost';
+import putPost from '../api/putPost';
 
 jest.mock('axios');
 
@@ -133,6 +134,45 @@ describe('axios Test', () => {
       // then
       await expect(result).resolves.toEqual(null);
       expect(axios.post).toHaveBeenCalledWith(`/post`, postInfo);
+    });
+  });
+
+  describe('putPost test', () => {
+    const postId = 1;
+    const postInfo = {
+      title: 'updatedTitleTest',
+      singer: 'updatedSingerTest',
+      content: 'updatedContentTest',
+    };
+
+    test('when success, return 200 code', async () => {
+      // given
+      const res = {
+        response: { status: 200 },
+      };
+
+      axios.put.mockImplementationOnce(() => Promise.resolve(res));
+
+      // when
+      const result = putPost(postId, postInfo);
+
+      // then
+      await expect(result).resolves.toEqual(res);
+      expect(axios.put).toHaveBeenCalledWith(`/post/${postId}`, postInfo);
+    });
+
+    test('when fail, return null', async () => {
+      // given
+      const errorMsg = 'Network Error';
+
+      axios.put.mockImplementationOnce(() => Promise.reject(new Error(errorMsg)));
+
+      // when
+      const result = putPost(postId, postInfo);
+
+      // then
+      await expect(result).resolves.toEqual(null);
+      expect(axios.put).toHaveBeenCalledWith(`/post/${postId}`, postInfo);
     });
   });
 });
