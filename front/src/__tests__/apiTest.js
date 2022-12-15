@@ -3,6 +3,7 @@ import getList from '../api/getList';
 import getPost from '../api/getPost';
 import postNewPost from '../api/postNewPost';
 import putPost from '../api/putPost';
+import deletePost from '../api/deletePost';
 
 jest.mock('axios');
 
@@ -173,6 +174,40 @@ describe('axios Test', () => {
       // then
       await expect(result).resolves.toEqual(null);
       expect(axios.put).toHaveBeenCalledWith(`/post/${postId}`, postInfo);
+    });
+  });
+
+  describe('deletePost test', () => {
+    const postId = 1;
+
+    test('when success, return 200 code', async () => {
+      // given
+      const res = {
+        response: { status: 200 },
+      };
+
+      axios.delete.mockImplementationOnce(() => Promise.resolve(res));
+
+      // when
+      const result = deletePost(postId);
+
+      // then
+      await expect(result).resolves.toEqual(res);
+      expect(axios.delete).toHaveBeenCalledWith(`/post/${postId}`);
+    });
+
+    test('when fail, return null', async () => {
+      // given
+      const errorMsg = 'Network Error';
+
+      axios.delete.mockImplementationOnce(() => Promise.reject(new Error(errorMsg)));
+
+      // when
+      const result = deletePost(postId);
+
+      // then
+      await expect(result).resolves.toEqual(null);
+      expect(axios.delete).toHaveBeenCalledWith(`/post/${postId}`);
     });
   });
 });
