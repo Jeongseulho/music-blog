@@ -22,8 +22,8 @@ function PreviewPost({ title, singer, registerDate, postId, setPostInfoList }) {
             <h2 className=" text-lg font-medium text-gray-900">{title}</h2>
           </div>
         </Link>
-        <div className="mt-1 flex">
-          <p className="mr-20">{singer}</p>
+        <div className="mt-1">
+          <p>{singer}</p>
           <PreviewPostBtn postId={postId} setPostInfoList={setPostInfoList} />
         </div>
       </div>

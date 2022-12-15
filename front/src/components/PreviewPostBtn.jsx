@@ -4,7 +4,7 @@ import usePreviewPostBtn from '../hooks/usePreviewPostBtn';
 function PreviewPostBtn({ postId, setPostInfoList }) {
   const { navigate, onDeletePost, onDeletePostFromState } = usePreviewPostBtn();
   return (
-    <div className="inline-flex h-12 w-24 items-center rounded-md">
+    <div className="relative left-36 bottom-4 inline-flex h-12 w-24 items-center rounded-md">
       <button
         type="button"
         onClick={() => navigate(`/edit-post/${postId}`)}
