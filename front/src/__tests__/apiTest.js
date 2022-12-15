@@ -4,6 +4,7 @@ import getPost from '../api/getPost';
 import postNewPost from '../api/postNewPost';
 import putPost from '../api/putPost';
 import deletePost from '../api/deletePost';
+import getUserIp from '../api/getUserIp';
 
 jest.mock('axios');
 
@@ -208,6 +209,51 @@ describe('axios Test', () => {
       // then
       await expect(result).resolves.toEqual(null);
       expect(axios.delete).toHaveBeenCalledWith(`/post/${postId}`);
+    });
+  });
+
+  describe('getUserIp test', () => {
+    const UserIpUrl = 'https://geolocation-db.com/json/';
+
+    test('when success, return postInfo', async () => {
+      // given
+      const res = {
+        data: [
+          {
+            IPv4: '59.23.34.180',
+            city: 'Donggu',
+            country_code: 'KR',
+            country_name: 'South Korea',
+            latitude: 35.7309,
+            longitude: 128.6267,
+            postal: null,
+            state: 'Daegu',
+          },
+        ],
+      };
+
+      axios.get.mockImplementationOnce(() => Promise.resolve(res));
+
+      // when
+      const result = getUserIp();
+
+      // then
+      await expect(result).resolves.toEqual(res);
+      expect(axios.get).toHaveBeenCalledWith(UserIpUrl);
+    });
+
+    test('when fail, return null', async () => {
+      // given
+      const errorMsg = 'Network Error';
+
+      axios.get.mockImplementationOnce(() => Promise.reject(new Error(errorMsg)));
+
+      // when
+      const result = getUserIp();
+
+      // then
+      await expect(result).resolves.toEqual(null);
+      expect(axios.get).toHaveBeenCalledWith(UserIpUrl);
     });
   });
 });
