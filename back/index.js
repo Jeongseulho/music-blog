@@ -40,9 +40,10 @@ app.post('/post', (req, res) => {
   const title = req.body.title;
   const singer = req.body.singer;
   const content = req.body.content;
+  const userIp = req.body.userIp;
   const sqlQuery =
-    'INSERT INTO POSTINFO (title, singer, content) VALUES (?,?,?)';
-  db.query(sqlQuery, [title, singer, content], (err, result) => {
+    'INSERT INTO POSTINFO (title, singer, content, userIp) VALUES (?,?,?,?)';
+  db.query(sqlQuery, [title, singer, content, userIp], (err, result) => {
     res.send(result);
   });
 });
