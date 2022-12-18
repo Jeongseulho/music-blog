@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import getPost from '../api/getPost';
 import postReply from '../api/postReply';
+import getReplyList from '../api/getReplyList';
 
 function useViewPost() {
   const params = useParams();
@@ -14,6 +15,7 @@ function useViewPost() {
     navigate('/');
   }
 
+  // 불러올 게시글 정보
   const [postInfo, setPostInfo] = useState([
     {
       title: '',
@@ -23,11 +25,18 @@ function useViewPost() {
     },
   ]);
 
+  // 작성할 댓글 정보
   const [replyInfo, setReplyInfo] = useState({ postId: params.postId, content: '', userIp });
+
+  // 불러올 댓글 정보
+  const [replyList, setReplyList] = useState([]);
 
   useEffect(() => {
     getPost(params.postId).then((res) => {
       setPostInfo(res.data[0]);
+    });
+    getReplyList(params.postId).then((res) => {
+      setReplyList(res.data);
     });
   }, []);
 
@@ -40,16 +49,20 @@ function useViewPost() {
 
   const onAddReply = async (e) => {
     e.preventDefault();
-
+    e.target.reset();
     if (!replyInfo.content) {
       alert('content is necessary');
       return;
     }
-    const res = postReply(replyInfo);
-    if (res === null) alert('댓글 등록 실패');
+    const response = postReply(replyInfo);
+    if (response === null) alert('댓글 등록 실패');
+
+    getReplyList(params.postId).then((res) => {
+      setReplyList(res.data);
+    });
   };
 
-  return { postInfo, replyInfo, onChange, onAddReply };
+  return { postInfo, onChange, onAddReply, replyList };
 }
 
 export default useViewPost;

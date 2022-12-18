@@ -1,9 +1,10 @@
 import React from 'react';
 import formatDateTime from '../utils/formatDateTime';
 import useViewPost from '../hooks/useViewPost';
+import Reply from '../components/Reply';
 
 function ViewPost() {
-  const { postInfo, onChange, onAddReply } = useViewPost();
+  const { postInfo, onChange, onAddReply, replyList } = useViewPost();
   const { title, singer, content, registerDate } = postInfo;
 
   return (
@@ -46,18 +47,15 @@ function ViewPost() {
             </svg>
           </button>
         </form>
-
-        <div className="pt-6">
-          <div className="flex pb-4">
-            <div>
-              <div>
-                <span className="mr-2 inline-block text-base font-bold">익명1</span>
-                <span className="text-slate-500 dark:text-slate-300">25 minutes ago</span>
-              </div>
-              <p>댓글 내용</p>
-            </div>
-          </div>
-        </div>
+        {replyList.map((reply, idx) => (
+          <Reply
+            key={reply.replyId}
+            userOrder={idx}
+            content={reply.content}
+            registerDate={reply.registerDate}
+            userIp={reply.userIp}
+          />
+        ))}
       </article>
     </div>
   );
