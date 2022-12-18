@@ -32,7 +32,7 @@ function ViewPost() {
         </div>
         <p>{content}</p>
 
-        <form onSubmit={onAddReply} className="relative pt-8 ">
+        <form onSubmit={onAddReply} autoComplete="off" className="relative pt-8 ">
           <input
             id="content"
             className="h-11 w-full rounded-lg border-2 border-slate-400 py-2 pl-3 pr-20 font-medium placeholder:text-slate-600"

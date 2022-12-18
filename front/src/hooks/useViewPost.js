@@ -23,9 +23,7 @@ function useViewPost() {
     },
   ]);
 
-  const [replyInfo, setReplyInfo] = useState([
-    { postId: params.postId, content: '', userIp, registerDate: '' },
-  ]);
+  const [replyInfo, setReplyInfo] = useState({ postId: params.postId, content: '', userIp });
 
   useEffect(() => {
     getPost(params.postId).then((res) => {
