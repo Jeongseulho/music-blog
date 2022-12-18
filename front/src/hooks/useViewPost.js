@@ -62,7 +62,7 @@ function useViewPost() {
     });
   };
 
-  return { postInfo, onChange, onAddReply, replyList };
+  return { postInfo, onChange, onAddReply, replyList, userIp };
 }
 
 export default useViewPost;
