@@ -53,6 +53,7 @@ function ViewPost() {
             content={reply.content}
             registerDate={reply.registerDate}
             userIp={reply.userIp}
+            postUserIp={postInfo.userIp}
             currentUserIp={currentUserIp}
           />
         ))}
