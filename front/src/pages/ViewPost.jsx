@@ -4,7 +4,7 @@ import useViewPost from '../hooks/useViewPost';
 import Reply from '../components/Reply';
 
 function ViewPost() {
-  const { postInfo, onChange, onAddReply, replyList, userIp } = useViewPost();
+  const { postInfo, onChange, onAddReply, replyList, currentUserIp } = useViewPost();
   const { title, singer, content, registerDate } = postInfo;
 
   return (
@@ -54,7 +54,7 @@ function ViewPost() {
             content={reply.content}
             registerDate={reply.registerDate}
             userIp={reply.userIp}
-            currentUserIp={userIp}
+            currentUserIp={currentUserIp}
           />
         ))}
       </article>

@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 import getPost from '../api/getPost';
+import useCurrentUserIp from './useCurrentUserIp';
 
 function useAuthStatus() {
   const params = useParams();
-  const currentUserIp = useSelector((state) => state.userIp.value);
+  const currentUserIp = useCurrentUserIp();
   const [isAuthorized, setIsAuthorized] = useState(false);
   const [loading, setLoading] = useState(true);
 

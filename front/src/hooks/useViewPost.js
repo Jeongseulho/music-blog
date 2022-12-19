@@ -1,19 +1,14 @@
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import useCurrentUserIp from './useCurrentUserIp';
 import getPost from '../api/getPost';
 import postReply from '../api/postReply';
 import getReplyList from '../api/getReplyList';
 
 function useViewPost() {
   const params = useParams();
-  const navigate = useNavigate();
-  const userIp = useSelector((state) => state.userIp.value);
-  const userIpStatus = useSelector((state) => state.userIp.status);
-  if (userIpStatus === 'fail') {
-    alert('유저ip 받아오기 실패');
-    navigate('/');
-  }
+
+  const currentUserIp = useCurrentUserIp();
 
   // 불러올 게시글 정보
   const [postInfo, setPostInfo] = useState([
@@ -26,7 +21,11 @@ function useViewPost() {
   ]);
 
   // 작성할 댓글 정보
-  const [replyInfo, setReplyInfo] = useState({ postId: params.postId, content: '', userIp });
+  const [replyInfo, setReplyInfo] = useState({
+    postId: params.postId,
+    content: '',
+    userIp: currentUserIp,
+  });
 
   // 불러올 댓글 정보
   const [replyList, setReplyList] = useState([]);
@@ -62,7 +61,7 @@ function useViewPost() {
     });
   };
 
-  return { postInfo, onChange, onAddReply, replyList, userIp };
+  return { postInfo, onChange, onAddReply, replyList, currentUserIp };
 }
 
 export default useViewPost;
