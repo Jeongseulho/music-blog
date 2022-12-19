@@ -5,6 +5,7 @@ const db = mysql.createPool({
   user: 'root',
   password: '1234',
   database: 'bbs',
+  multipleStatements: true,
 });
 
 module.exports = db;

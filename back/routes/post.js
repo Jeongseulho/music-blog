@@ -29,7 +29,9 @@ router.put('/:postId', (req, res) => {
 
 router.delete('/:postId', (req, res) => {
   const postId = req.params.postId;
-  const sqlQuery = `DELETE FROM POSTINFO WHERE postId=${postId}`;
+  const sqlQueryDelPost = `DELETE FROM POSTINFO WHERE postId=${postId};`;
+  const sqlQueryDelReply = `DELETE FROM REPLYINFO WHERE postId=${postId}`;
+  const sqlQuery = sqlQueryDelPost + sqlQueryDelReply;
   db.query(sqlQuery, (err, result) => {
     res.send(result);
   });
