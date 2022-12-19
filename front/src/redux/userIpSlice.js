@@ -13,6 +13,11 @@ const getUserIpThunk = createAsyncThunk('UserIpSlice/getUserIpThunk', async () =
 const UserIpSlice = createSlice({
   name: 'UserIpSlice',
   initialState: { value: 0 },
+  reducers: {
+    setIp(state, action) {
+      state.value = action.payload;
+    },
+  },
   extraReducers(builder) {
     builder.addCase(getUserIpThunk.pending, (state) => {
       state.status = 'loading';
@@ -31,3 +36,4 @@ const UserIpSlice = createSlice({
 
 export default UserIpSlice;
 export { getUserIpThunk };
+export const { setIp } = UserIpSlice.actions;

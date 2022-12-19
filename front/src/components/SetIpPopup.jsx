@@ -1,6 +1,9 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { setIp } from '../redux/userIpSlice';
 
 function SetIpPopup({ setModalPopup }) {
+  const dispatch = useDispatch();
   return (
     <div className="absolute top-0 left-0 z-10 h-screen w-screen bg-slate-900/70 ">
       <form className="absolute left-[38%] top-1/4 flex w-1/4 opacity-100">
@@ -26,6 +29,9 @@ function SetIpPopup({ setModalPopup }) {
             <div className="col-span-2  flex w-full items-center justify-between gap-4 text-right">
               <button
                 type="button"
+                onClick={() => {
+                  dispatch(setIp('12.34'));
+                }}
                 className="w-full rounded-lg  bg-indigo-600 py-2 px-4 text-center text-base font-semibold text-white shadow-md transition duration-200 ease-in hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2  focus:ring-offset-indigo-200 "
               >
                 Register

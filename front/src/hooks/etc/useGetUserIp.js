@@ -4,7 +4,6 @@ import { getUserIpThunk } from '../../redux/userIpSlice';
 
 function useGetUserIp() {
   const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(getUserIpThunk());
   }, []);
