@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import getUserIp from '../api/getUserIp';
+import getUserIp from '../api/etc/getUserIp';
 
 // createAsyncThunk
 const getUserIpThunk = createAsyncThunk('UserIpSlice/getUserIpThunk', async () => {

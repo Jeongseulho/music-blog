@@ -1,5 +1,5 @@
 import React from 'react';
-import useAddPost from '../hooks/useAddPost';
+import useAddPost from '../hooks/usePages/useAddPost';
 
 function AddPost() {
   const { onChange, onAddPost } = useAddPost();

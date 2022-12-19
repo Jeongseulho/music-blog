@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import deletePost from '../api/deletePost';
+import deletePost from '../../api/post/deletePost';
 
 function usePreviewPostBtn() {
   const navigate = useNavigate();

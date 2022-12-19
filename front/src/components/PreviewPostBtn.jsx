@@ -1,5 +1,5 @@
 import React from 'react';
-import usePreviewPostBtn from '../hooks/usePreviewPostBtn';
+import usePreviewPostBtn from '../hooks/useComponents/usePreviewPostBtn';
 
 function PreviewPostBtn({ postId, setPostInfoList }) {
   const { navigate, onDeletePost, onDeletePostFromState } = usePreviewPostBtn();

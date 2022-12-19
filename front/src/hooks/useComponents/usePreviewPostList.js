@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import getList from '../api/getList';
+import getList from '../../api/etc/getList';
 
 function usePreviewPostList() {
   const [postInfoList, setPostInfoList] = useState([]);

@@ -1,5 +1,5 @@
 import React from 'react';
-import useEditPost from '../hooks/useEditPost';
+import useEditPost from '../hooks/usePages/useEditPost';
 
 function EditPost() {
   const { postInfo, onChange, onEditPost } = useEditPost();

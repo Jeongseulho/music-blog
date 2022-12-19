@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import useHeader from '../hooks/useHeader';
-import SetUserIpPopup from './SetUserIpPopup';
+import useHeader from '../hooks/useComponents/useHeader';
+import SetIpPopup from './SetIpPopup';
 
 function Header() {
   const { modalPopup, setModalPopup } = useHeader();
@@ -45,7 +45,7 @@ function Header() {
           </div>
         </div>
       </div>
-      {modalPopup && <SetUserIpPopup setModalPopup={setModalPopup} />}
+      {modalPopup && <SetIpPopup setModalPopup={setModalPopup} />}
     </nav>
   );
 }

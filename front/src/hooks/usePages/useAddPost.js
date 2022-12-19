@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import postNewPost from '../api/postNewPost';
+import postNewPost from '../../api/post/postNewPost';
 
 function useAddPost() {
   const navigate = useNavigate();

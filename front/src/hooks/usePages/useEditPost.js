@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import putPost from '../api/putPost';
-import getPost from '../api/getPost';
+import putPost from '../../api/post/putPost';
+import getPost from '../../api/post/getPost';
 
 function useEditPost() {
   const navigate = useNavigate();

@@ -1,9 +1,9 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import useCurrentUserIp from './useCurrentUserIp';
-import getPost from '../api/getPost';
-import postReply from '../api/postReply';
-import getReplyList from '../api/getReplyList';
+import useCurrentUserIp from '../etc/useCurrentUserIp';
+import getPost from '../../api/post/getPost';
+import postReply from '../../api/reply/postReply';
+import getReplyList from '../../api/reply/getReplyList';
 
 function useViewPost() {
   const params = useParams();

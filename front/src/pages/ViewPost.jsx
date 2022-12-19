@@ -1,6 +1,6 @@
 import React from 'react';
 import formatDateTime from '../utils/formatDateTime';
-import useViewPost from '../hooks/useViewPost';
+import useViewPost from '../hooks/usePages/useViewPost';
 import Reply from '../components/Reply';
 
 function ViewPost() {

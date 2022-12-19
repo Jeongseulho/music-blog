@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import getPost from '../api/getPost';
+import getPost from '../../api/post/getPost';
 import useCurrentUserIp from './useCurrentUserIp';
 
 function useAuthStatus() {

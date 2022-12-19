@@ -6,7 +6,7 @@ import AddPost from './pages/AddPost';
 import Header from './components/Header';
 import ViewPost from './pages/ViewPost';
 import EditPost from './pages/EditPost';
-import useGetUserIp from './hooks/useGetUserIp';
+import useGetUserIp from './hooks/etc/useGetUserIp';
 import PrivateRoute from './components/PrivateRoute';
 
 function App() {

@@ -1,6 +1,6 @@
 import React from 'react';
 
-function SetUserIpPopup({ setModalPopup }) {
+function SetIpPopup({ setModalPopup }) {
   return (
     <div className="absolute top-0 left-0 z-10 h-screen w-screen bg-slate-900/70 ">
       <form className="absolute left-[38%] top-1/4 flex w-1/4 opacity-100">
@@ -47,4 +47,4 @@ function SetUserIpPopup({ setModalPopup }) {
   );
 }
 
-export default SetUserIpPopup;
+export default SetIpPopup;

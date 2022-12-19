@@ -1,10 +1,10 @@
 import axios from 'axios';
-import getList from '../api/getList';
-import getPost from '../api/getPost';
-import postNewPost from '../api/postNewPost';
-import putPost from '../api/putPost';
-import deletePost from '../api/deletePost';
-import getUserIp from '../api/getUserIp';
+import getList from '../api/etc/getList';
+import getPost from '../api/post/getPost';
+import postNewPost from '../api/post/postNewPost';
+import putPost from '../api/post/putPost';
+import deletePost from '../api/post/deletePost';
+import getUserIp from '../api/etc/getUserIp';
 
 jest.mock('axios');
 

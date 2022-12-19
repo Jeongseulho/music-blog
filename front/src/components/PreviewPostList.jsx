@@ -1,6 +1,6 @@
 import React from 'react';
 import PreviewPost from './PreviewPost';
-import usePreviewPostList from '../hooks/usePreviewPostList';
+import usePreviewPostList from '../hooks/useComponents/usePreviewPostList';
 
 function PreviewPostList() {
   const { postInfoList, setPostInfoList } = usePreviewPostList();
