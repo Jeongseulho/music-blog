@@ -22,9 +22,11 @@ function useViewPost() {
 
   // 작성할 댓글 정보
   const [replyInfo, setReplyInfo] = useState({
+    replyId: 0,
     postId: params.postId,
     content: '',
     userIp: currentUserIp,
+    registerDate: '방금전',
   });
 
   // 불러올 댓글 정보
@@ -56,9 +58,7 @@ function useViewPost() {
     const response = postReply(replyInfo);
     if (response === null) alert('댓글 등록 실패');
 
-    getReplyList(params.postId).then((res) => {
-      setReplyList(res.data);
-    });
+    setReplyList((prevState) => [...prevState, { ...replyInfo, replyId: prevState.length + 1 }]);
   };
 
   return { postInfo, onChange, onAddReply, replyList, currentUserIp };

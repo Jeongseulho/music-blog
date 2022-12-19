@@ -1,15 +1,17 @@
 import React from 'react';
 import formatDateTime from '../utils/formatDateTime';
 
-function Reply({ content, registerDate, userOrder, userIp, currentUserIp }) {
+function Reply({ content, registerDate, userIp, currentUserIp }) {
   return (
     <div className="pt-6">
       <div className="flex pb-4">
         <div>
           <div>
-            <span className="mr-2 inline-block text-base font-bold">{`익명 ${userOrder + 1}`}</span>
+            <span className="mr-2 inline-block text-base font-bold">
+              {currentUserIp === userIp ? `글 작성자` : `익명`}
+            </span>
             <span className="text-slate-500 dark:text-slate-300">
-              {formatDateTime(registerDate)}
+              {registerDate === '방금전' ? registerDate : formatDateTime(registerDate)}
             </span>
             {currentUserIp === userIp && (
               <button
