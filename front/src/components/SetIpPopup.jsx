@@ -27,7 +27,7 @@ function SetIpPopup({ setModalPopup }) {
                   id="ipAdress"
                   onChange={onChange}
                   className=" w-full flex-1 appearance-none rounded-lg border  border-gray-300 bg-white py-2 px-4 text-base text-gray-700 shadow-sm placeholder:text-gray-400 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600"
-                  placeholder="your ip address"
+                  placeholder="ex) 0.0.0.0"
                 />
               </div>
             </div>
