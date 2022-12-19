@@ -47,10 +47,9 @@ function ViewPost() {
             </svg>
           </button>
         </form>
-        {replyList.map((reply, idx) => (
+        {replyList.map((reply) => (
           <Reply
             key={reply.replyId}
-            userOrder={idx}
             content={reply.content}
             registerDate={reply.registerDate}
             userIp={reply.userIp}
