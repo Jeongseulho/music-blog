@@ -5,8 +5,8 @@ function Admin() {
   const { tabs, currentTab, setCurrentTab } = useAdmin();
 
   return (
-    <div className="flex justify-center">
-      <div id="view" className="flex h-full w-screen flex-row">
+    <div>
+      <div id="view" className="flex h-full w-screen flex-[1,2,auto] flex-row">
         <div
           id="sidebar"
           className="h-screen w-28 overflow-x-hidden bg-white px-3 shadow-xl transition-transform duration-300 ease-in-out md:block md:w-60 lg:w-60"

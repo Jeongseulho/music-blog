@@ -6,7 +6,6 @@ import UiManage from '../../components/admin/UiManage';
 import UserManage from '../../components/admin/UserManage';
 
 function useAdmin() {
-  // i want tab feature
   const tabs = [<PostManage />, <ReplyManage />, <UserManage />, <UiManage />, <Analysis />];
   const [currentTab, setCurrentTab] = useState(0);
   return { tabs, currentTab, setCurrentTab };

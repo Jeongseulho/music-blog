@@ -7,7 +7,7 @@ function Header() {
   const { modalPopup, setModalPopup, currentUserIp, location } = useHeader();
 
   return location.pathname === '/admin' ? (
-    <Link to="/" className=" absolute left-1/2 mt-4 flex -translate-x-1/2 items-center">
+    <Link to="/" className=" absolute left-1/2 z-10 mt-4 flex -translate-x-1/2 items-center">
       <img
         src="https://flowbite.com/docs/images/logo.svg"
         className="mr-3 h-6 sm:h-9"
