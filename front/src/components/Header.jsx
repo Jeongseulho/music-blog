@@ -20,25 +20,23 @@ function Header() {
         </Link>
         <div className="hidden w-full md:block md:w-auto" id="navbar-default">
           <Link to="/add-post">
-            <div className="mt-4 rounded-lg border border-gray-700 duration-500 hover:bg-gray-700">
-              <button
-                type="button"
-                className="block rounded py-2 pl-3 pr-4 text-gray-700 hover:text-gray-100"
-              >
-                글 쓰기
-              </button>
-            </div>
+            <button
+              type="button"
+              className="w-full rounded-full  bg-blue-600 py-4 px-6 text-center text-base font-semibold text-white shadow-md transition duration-200 ease-in hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2  focus:ring-offset-blue-200"
+            >
+              글 작성하기
+            </button>
           </Link>
         </div>
 
         <div className=" w-full md:block md:w-auto" id="navbar-default">
-          <div className=" mt-4 rounded-lg border border-gray-700  duration-500 hover:bg-gray-700">
+          <div className=" mt-4 duration-500">
             <button
               type="button"
               onClick={() => {
                 setModalPopup(true);
               }}
-              className=" mx-auto block rounded py-2 pl-3 pr-4 text-gray-700 hover:text-gray-100"
+              className="w-full rounded-lg  bg-indigo-600 py-2 px-4 text-center text-base font-semibold text-white shadow-md transition duration-200 ease-in hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2  focus:ring-offset-indigo-200 "
             >
               내 IP 설정하기
             </button>

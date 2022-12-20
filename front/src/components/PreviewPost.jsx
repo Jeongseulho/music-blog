@@ -7,7 +7,7 @@ import PreviewPostBtn from './PreviewPostBtn';
 function PreviewPost({ title, singer, registerDate, postId, userIp, setPostInfoList }) {
   const currentUserIp = useCurrentUserIp();
   return (
-    <div className=" m-4 flex flex-col rounded-md border border-gray-600 pb-4">
+    <div className=" m-4 flex flex-col rounded-md border border-gray-600 pb-4 duration-300 hover:scale-110">
       <div className="flex h-80 w-full flex-col p-4">
         <Link to={`/view-post/${postId}`}>
           <div className="relative block h-48 cursor-pointer overflow-hidden rounded">
