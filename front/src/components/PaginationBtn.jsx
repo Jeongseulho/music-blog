@@ -1,8 +1,8 @@
 import React from 'react';
 
-function PaginationBtn() {
+function PaginationBtn({ setCurrentPage, totalPage, currentPage }) {
   return (
-    <nav aria-label="Page navigation" className="absolute left-1/2 -translate-x-1/2">
+    <nav aria-label="Page navigation" className="absolute left-1/2 bottom-4 -translate-x-1/2">
       <ul className="inline-flex space-x-2">
         <li>
           <button
@@ -18,30 +18,22 @@ function PaginationBtn() {
             </svg>
           </button>
         </li>
-        <li>
-          <button
-            type="button"
-            className="h-10 w-10 rounded-full text-indigo-600 transition-colors duration-150 hover:bg-indigo-100"
-          >
-            1
-          </button>
-        </li>
-        <li>
-          <button
-            type="button"
-            className="h-10 w-10 rounded-full text-indigo-600 transition-colors duration-150 hover:bg-indigo-100"
-          >
-            2
-          </button>
-        </li>
-        <li>
-          <button
-            type="button"
-            className="h-10 w-10 rounded-full border border-r-0 border-indigo-600 bg-indigo-600 text-white transition-colors duration-150"
-          >
-            3
-          </button>
-        </li>
+        {Array.from({ length: totalPage }, (_, i) => i + 1).map((pageNum) => (
+          <li key={pageNum}>
+            <button
+              type="button"
+              className={
+                currentPage === pageNum
+                  ? 'h-10 w-10 rounded-full border border-r-0 border-indigo-600 bg-indigo-600 text-white transition-colors duration-150'
+                  : 'h-10 w-10 rounded-full text-indigo-600 transition-colors duration-150 hover:bg-indigo-100'
+              }
+              onClick={() => setCurrentPage(pageNum)}
+            >
+              {pageNum}
+            </button>
+          </li>
+        ))}
+
         <li>
           <button
             type="button"

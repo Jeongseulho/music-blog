@@ -4,12 +4,13 @@ import usePreviewPostList from '../hooks/useComponents/usePreviewPostList';
 import PaginationBtn from './PaginationBtn';
 
 function PreviewPostList() {
-  const { postInfoList, setPostInfoList } = usePreviewPostList();
+  const { currentPostList, setPostInfoList, setCurrentPage, totalPage, currentPage } =
+    usePreviewPostList();
 
   return (
     <>
       <main className=" ml-24 flex flex-wrap">
-        {postInfoList.map((postInfo) => (
+        {currentPostList.map((postInfo) => (
           <PreviewPost
             key={postInfo.postId}
             postId={postInfo.postId}
@@ -21,7 +22,11 @@ function PreviewPostList() {
           />
         ))}
       </main>
-      <PaginationBtn />
+      <PaginationBtn
+        setCurrentPage={setCurrentPage}
+        totalPage={totalPage}
+        currentPage={currentPage}
+      />
     </>
   );
 }

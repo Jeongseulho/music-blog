@@ -3,6 +3,10 @@ import getList from '../../api/etc/getList';
 
 function usePreviewPostList() {
   const [postInfoList, setPostInfoList] = useState([]);
+  const [postPerPage, setPostPerPage] = useState(8);
+  const [currentPage, setCurrentPage] = useState(1);
+  const firstPostOfCurrentPage = (currentPage - 1) * postPerPage;
+  const totalPage = Math.ceil(postInfoList.length / postPerPage);
 
   useEffect(() => {
     getList().then((res) => {
@@ -10,7 +14,19 @@ function usePreviewPostList() {
     });
   }, []);
 
-  return { postInfoList, setPostInfoList };
+  const currentPostList = postInfoList.slice(
+    firstPostOfCurrentPage,
+    firstPostOfCurrentPage + postPerPage,
+  );
+
+  return {
+    currentPostList,
+    setPostInfoList,
+    setPostPerPage,
+    setCurrentPage,
+    totalPage,
+    currentPage,
+  };
 }
 
 export default usePreviewPostList;
