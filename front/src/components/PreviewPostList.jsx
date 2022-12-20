@@ -1,24 +1,28 @@
 import React from 'react';
 import PreviewPost from './PreviewPost';
 import usePreviewPostList from '../hooks/useComponents/usePreviewPostList';
+import PaginationBtn from './PaginationBtn';
 
 function PreviewPostList() {
   const { postInfoList, setPostInfoList } = usePreviewPostList();
 
   return (
-    <main className=" ml-24 flex flex-wrap">
-      {postInfoList.map((postInfo) => (
-        <PreviewPost
-          key={postInfo.postId}
-          postId={postInfo.postId}
-          title={postInfo.title}
-          singer={postInfo.singer}
-          userIp={postInfo.userIp}
-          registerDate={postInfo.registerDate}
-          setPostInfoList={setPostInfoList}
-        />
-      ))}
-    </main>
+    <>
+      <main className=" ml-24 flex flex-wrap">
+        {postInfoList.map((postInfo) => (
+          <PreviewPost
+            key={postInfo.postId}
+            postId={postInfo.postId}
+            title={postInfo.title}
+            singer={postInfo.singer}
+            userIp={postInfo.userIp}
+            registerDate={postInfo.registerDate}
+            setPostInfoList={setPostInfoList}
+          />
+        ))}
+      </main>
+      <PaginationBtn />
+    </>
   );
 }
 
