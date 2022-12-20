@@ -15,7 +15,6 @@ function PostTableData({
   return (
     <tr className="mb-0 table-row text-center">
       <td className=" border p-3 hover:bg-gray-100">{postId}</td>
-
       <td className=" w-[158px] border p-3 hover:bg-gray-100">{title}</td>
       <td className=" w-[160px] border p-3 hover:bg-gray-100">{singer}</td>
       <td className=" w-[160px] border p-3 hover:bg-gray-100">{userIp}</td>
