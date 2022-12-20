@@ -2,7 +2,7 @@ import axios from 'axios';
 
 async function getAllReply() {
   try {
-    const res = await axios.get(`/all-reply/`);
+    const res = await axios.get(`/reply/all`);
     return res;
   } catch (error) {
     return null;

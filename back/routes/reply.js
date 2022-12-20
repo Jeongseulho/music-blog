@@ -20,8 +20,8 @@ router.get('/:postId', (req, res) => {
   });
 });
 
-router.get('/all-reply/', (req, res) => {
-  const sqlQuery = 'SELECT * FROM replyinfo';
+router.get('/all', (req, res) => {
+  const sqlQuery = 'SELECT* FROM replyinfo';
   db.query(sqlQuery, (err, result) => {
     res.send(result);
   });
