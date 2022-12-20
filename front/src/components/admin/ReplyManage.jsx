@@ -1,7 +1,9 @@
 import React from 'react';
 import ReplyTableData from './ReplyTableData';
+import useReplyManage from '../../hooks/useComponents/useReplyManage';
 
 function ReplyManage() {
+  const allReplyList = useReplyManage();
   return (
     <div className="relative left-36 flex items-center justify-center">
       <div className="container">
@@ -12,23 +14,21 @@ function ReplyManage() {
               <th className=" p-3 text-left">해당 글 ID</th>
               <th className=" p-3 px-36 text-left">내용</th>
               <th className=" p-3 px-16 text-left">작성자 IP</th>
-              <th className=" p-3 px-8 text-left">등록일자</th>
+              <th className=" p-3 px-9 text-left">등록일자</th>
               <th className=" p-3 text-left">action</th>
             </tr>
           </thead>
           <tbody className="sm:flex-none">
-            <ReplyTableData />
-            {/* postInfoList.map((postInfo, idx) => (
+            {allReplyList.map((replyInfo) => (
               <ReplyTableData
-                idx={idx}
-                postId={postInfo.postId}
-                key={postInfo.postId}
-                title={postInfo.title}
-                singer={postInfo.singer}
-                userIp={postInfo.userIp}
-                registerDate={postInfo.registerDate}
+                replyId={replyInfo.replyId}
+                postId={replyInfo.postId}
+                key={replyInfo.replyId}
+                content={replyInfo.content}
+                userIp={replyInfo.userIp}
+                registerDate={replyInfo.registerDate}
               />
-            )) */}
+            ))}
           </tbody>
         </table>
       </div>
