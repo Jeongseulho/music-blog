@@ -7,6 +7,10 @@ function PaginationBtn({ setCurrentPage, totalPage, currentPage }) {
         <li>
           <button
             type="button"
+            disabled={currentPage === 1}
+            onClick={() => {
+              setCurrentPage((prevState) => prevState - 1);
+            }}
             className="flex h-10 w-10 items-center justify-center rounded-full text-indigo-600 transition-colors duration-150 hover:bg-indigo-100"
           >
             <svg className="h-4 w-4 fill-current" viewBox="0 0 20 20">
@@ -37,6 +41,10 @@ function PaginationBtn({ setCurrentPage, totalPage, currentPage }) {
         <li>
           <button
             type="button"
+            disabled={currentPage === totalPage}
+            onClick={() => {
+              setCurrentPage((prevState) => prevState + 1);
+            }}
             className=" flex h-10 w-10 items-center justify-center rounded-full bg-white text-indigo-600 transition-colors duration-150 hover:bg-indigo-100"
           >
             <svg className="h-4 w-4 fill-current" viewBox="0 0 20 20">
