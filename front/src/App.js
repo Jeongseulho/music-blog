@@ -8,6 +8,7 @@ import ViewPost from './pages/ViewPost';
 import EditPost from './pages/EditPost';
 import useGetUserIp from './hooks/etc/useGetUserIp';
 import PrivateRoute from './components/PrivateRoute';
+import Admin from './pages/Admin';
 
 function App() {
   useGetUserIp();
@@ -21,6 +22,7 @@ function App() {
         <Route path="/edit-post" element={<PrivateRoute />}>
           <Route path="/edit-post/:postId" element={<EditPost />} />
         </Route>
+        <Route path="/admin" element={<Admin />} />
       </Routes>
     </BrowserRouter>
   );
