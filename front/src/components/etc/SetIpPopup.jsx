@@ -1,5 +1,5 @@
 import React from 'react';
-import useSetIpPopup from '../hooks/useComponents/useSetIpPopup';
+import useSetIpPopup from '../../hooks/useComponents/useSetIpPopup';
 
 function SetIpPopup({ setModalPopup }) {
   const { onChange, onSetIp } = useSetIpPopup();

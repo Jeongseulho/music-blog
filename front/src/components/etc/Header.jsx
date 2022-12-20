@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import useHeader from '../hooks/useComponents/useHeader';
+import useHeader from '../../hooks/useComponents/useHeader';
 import SetIpPopup from './SetIpPopup';
 
 function Header() {

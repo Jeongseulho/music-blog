@@ -1,6 +1,6 @@
 import React from 'react';
 import PreviewPost from './PreviewPost';
-import usePreviewPostList from '../hooks/useComponents/usePreviewPostList';
+import usePreviewPostList from '../../hooks/useComponents/usePreviewPostList';
 import PaginationBtn from './PaginationBtn';
 
 function PreviewPostList() {

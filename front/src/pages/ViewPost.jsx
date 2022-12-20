@@ -1,7 +1,7 @@
 import React from 'react';
 import formatDateTime from '../utils/formatDateTime';
 import useViewPost from '../hooks/usePages/useViewPost';
-import Reply from '../components/Reply';
+import Reply from '../components/etc/Reply';
 
 function ViewPost() {
   const { postInfo, onChange, onAddReply, replyList, currentUserIp } = useViewPost();

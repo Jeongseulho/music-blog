@@ -3,11 +3,11 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import React from 'react';
 import Home from './pages/Home';
 import AddPost from './pages/AddPost';
-import Header from './components/Header';
+import Header from './components/etc/Header';
 import ViewPost from './pages/ViewPost';
 import EditPost from './pages/EditPost';
 import useGetUserIp from './hooks/etc/useGetUserIp';
-import PrivateRoute from './components/PrivateRoute';
+import PrivateRoute from './components/etc/PrivateRoute';
 import Admin from './pages/Admin';
 
 function App() {

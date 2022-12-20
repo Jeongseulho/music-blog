@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import useCurrentUserIp from '../hooks/etc/useCurrentUserIp';
-import formatDateTime from '../utils/formatDateTime';
+import useCurrentUserIp from '../../hooks/etc/useCurrentUserIp';
+import formatDateTime from '../../utils/formatDateTime';
 import PreviewPostBtn from './PreviewPostBtn';
 
 function PreviewPost({ title, singer, registerDate, postId, userIp, setPostInfoList }) {

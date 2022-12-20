@@ -1,5 +1,5 @@
 import React from 'react';
-import formatDateTime from '../utils/formatDateTime';
+import formatDateTime from '../../utils/formatDateTime';
 
 function Reply({ content, registerDate, userIp, postUserIp, currentUserIp }) {
   return (
