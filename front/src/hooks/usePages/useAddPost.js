@@ -21,6 +21,7 @@ function useAddPost() {
   });
 
   const [imgList, setImgList] = useState([]);
+  const [currentImgIdx, setCurrentImgIdx] = useState(0);
 
   const onChange = (e) => {
     setPostInfo((prevState) => ({
@@ -60,6 +61,8 @@ function useAddPost() {
     postInfo,
     imgList,
     onSearchImg,
+    currentImgIdx,
+    setCurrentImgIdx,
   };
 }
 

@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
   const option = {
     query: req.query.searchText, //이미지 검색 텍스트
     start: 1, //검색 시작 위치
-    display: 5, //가져올 이미지 갯수
+    display: 10, //가져올 이미지 갯수
     sort: 'sim', //정렬 유형 (sim:유사도)
     filter: 'all', //이미지 사이즈
   };

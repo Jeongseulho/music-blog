@@ -2,7 +2,8 @@ import React from 'react';
 import useAddPost from '../hooks/usePages/useAddPost';
 
 function AddPost() {
-  const { onChange, onAddPost, darkMode, onSearchImg, imgList } = useAddPost();
+  const { onChange, onAddPost, darkMode, onSearchImg, imgList, currentImgIdx, setCurrentImgIdx } =
+    useAddPost();
 
   return (
     <div className="mx-auto h-[85%] w-full max-w-lg rounded-md border border-gray-600 py-4 px-10 ">
@@ -47,19 +48,33 @@ function AddPost() {
             <img
               className="h-3/4 w-full object-scale-down"
               src={
-                imgList[0]
-                  ? imgList[0]
+                imgList[currentImgIdx]
+                  ? imgList[currentImgIdx]
                   : 'https://images.pexels.com/photos/92866/pexels-photo-92866.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
               }
               alt="이미지 준비중"
             />
-            <button
-              type="button"
-              onClick={() => onSearchImg()}
-              className="mt-5 rounded-md bg-gray-700 px-10 py-2 text-white duration-500 hover:bg-black"
-            >
-              search image
-            </button>
+            <div className="flex justify-between ">
+              <button
+                type="button"
+                onClick={() => onSearchImg()}
+                className="mt-5 rounded-md bg-gray-700 px-10 py-2 text-white duration-500 hover:bg-black"
+              >
+                이미지 검색
+              </button>
+              <button
+                type="button"
+                onClick={() =>
+                  setCurrentImgIdx((prev) => {
+                    if (prev === 9) return 0;
+                    return prev + 1;
+                  })
+                }
+                className="mt-5 rounded-md bg-gray-700 px-10 py-2 text-white duration-500 hover:bg-black"
+              >
+                다른 이미지
+              </button>
+            </div>
           </div>
 
           <div className="relative bottom-16 col-span-2 mt-4">
@@ -82,9 +97,9 @@ function AddPost() {
         </div>
         <button
           type="submit"
-          className=" relative bottom-12 mt-5 rounded-md bg-gray-700 px-10 py-2 text-white duration-500 hover:bg-black"
+          className=" relative bottom-12 mt-2 rounded-md bg-gray-700 px-10 py-2 text-white duration-500 hover:bg-black"
         >
-          posting
+          등록하기
         </button>
       </form>
     </div>
