@@ -1,5 +1,6 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import React from 'react';
 import Home from './pages/Home';
 import AddPost from './pages/AddPost';
@@ -12,19 +13,22 @@ import Admin from './pages/Admin';
 
 function App() {
   useGetUserIp();
+  const darkMode = useSelector((state) => state.darkMode.value);
   return (
-    <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/add-post" element={<AddPost />} />
-        <Route path="/view-post/:postId" element={<ViewPost />} />
-        <Route path="/edit-post" element={<PrivateRoute />}>
-          <Route path="/edit-post/:postId" element={<EditPost />} />
-        </Route>
-        <Route path="/admin" element={<Admin />} />
-      </Routes>
-    </BrowserRouter>
+    <div className={`${darkMode ? 'dark' : ''} h-screen w-screen`}>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/add-post" element={<AddPost />} />
+          <Route path="/view-post/:postId" element={<ViewPost />} />
+          <Route path="/edit-post" element={<PrivateRoute />}>
+            <Route path="/edit-post/:postId" element={<EditPost />} />
+          </Route>
+          <Route path="/admin" element={<Admin />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
 }
 
