@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import formatDateTime from '../../utils/formatDateTime';
 
 function PostTableData({
@@ -12,8 +13,9 @@ function PostTableData({
   setModalPopup,
   setCurrentPostId,
 }) {
+  const darkMode = useSelector((state) => state.darkMode.value);
   return (
-    <tr className="mb-0 table-row text-center">
+    <tr className={`${darkMode ? 'dark' : ''} mb-0 table-row text-center`}>
       <td className=" border p-3 hover:bg-gray-100">{postId}</td>
       <td className=" w-[158px] border p-3 hover:bg-gray-100">{title}</td>
       <td className=" w-[160px] border p-3 hover:bg-gray-100">{singer}</td>

@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import useCurrentUserIp from '../etc/useCurrentUserIp';
 import getPost from '../../api/post/getPost';
 import postReply from '../../api/reply/postReply';
@@ -72,7 +73,9 @@ function useViewPost() {
     setReplyList((prevState) => prevState.filter((reply) => reply.replyId !== replyId));
   };
 
-  return { postInfo, onChange, onAddReply, replyList, currentUserIp, onDelReply };
+  const darkMode = useSelector((state) => state.darkMode.value);
+
+  return { postInfo, onChange, onAddReply, replyList, currentUserIp, onDelReply, darkMode };
 }
 
 export default useViewPost;

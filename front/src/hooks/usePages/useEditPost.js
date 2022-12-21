@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import putPost from '../../api/post/putPost';
 import getPost from '../../api/post/getPost';
 
@@ -40,7 +41,9 @@ function useEditPost() {
     navigate(`/view-post/${params.postId}`);
   };
 
-  return { postInfo, onChange, onEditPost };
+  const darkMode = useSelector((state) => state.darkMode);
+
+  return { postInfo, onChange, onEditPost, darkMode };
 }
 
 export default useEditPost;

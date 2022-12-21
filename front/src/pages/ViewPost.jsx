@@ -4,12 +4,21 @@ import useViewPost from '../hooks/usePages/useViewPost';
 import Reply from '../components/etc/Reply';
 
 function ViewPost() {
-  const { postInfo, onChange, onAddReply, replyList, currentUserIp, onDelReply } = useViewPost();
+  const { postInfo, onChange, onAddReply, replyList, currentUserIp, onDelReply, darkMode } =
+    useViewPost();
   const { title, singer, content, registerDate } = postInfo;
 
   return (
-    <div className=" flex flex-col items-center px-8 pt-10 ">
-      <article className=" mb-4 flex w-full flex-col rounded-xl border-4 border-gray-600 bg-white bg-clip-border p-6 sm:w-3/6">
+    <div
+      className={`${
+        darkMode ? 'dark' : ''
+      } flex h-screen w-screen flex-col items-center px-8 pt-10`}
+    >
+      <article
+        className={`${
+          darkMode ? 'dark' : ''
+        }  mb-4 flex w-full flex-col rounded-xl border-4 border-gray-600 bg-white bg-clip-border p-6 sm:w-3/6`}
+      >
         <div className="flex items-center justify-between pb-6">
           <div className="flex">
             <div className="flex flex-col">
@@ -36,7 +45,9 @@ function ViewPost() {
         <form onSubmit={onAddReply} autoComplete="off" className="relative pt-8 ">
           <input
             id="content"
-            className="h-11 w-full rounded-lg border-2 border-slate-400 py-2 pl-3 pr-20 font-medium placeholder:text-slate-600"
+            className={`${
+              darkMode ? 'dark' : ''
+            }  h-11 w-full rounded-lg border-2 border-slate-400 py-2 pl-3 pr-20 font-medium placeholder:text-slate-600`}
             type="text"
             onChange={onChange}
             placeholder="Write a comment"
