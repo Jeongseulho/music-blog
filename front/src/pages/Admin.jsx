@@ -4,13 +4,15 @@ import useAdmin from '../hooks/usePages/useAdmin';
 function Admin() {
   const { tabs, currentTab, setCurrentTab, darkMode } = useAdmin();
 
+  // how to stretch height of div arcoding to the height of the content
+  // https://stackoverflow.com/questions/11781624/how-to-stretch-height-of-div-according-to-the-height-of-the-content
   return (
-    <div id="view" className="flex h-full w-screen flex-[1,2,auto] flex-row">
+    <div id="view" className={`${darkMode ? 'dark' : ''} flex h-fit `}>
       <div
         id="sidebar"
         className={`${
           darkMode ? 'dark' : ''
-        } h-screen w-28 overflow-x-hidden bg-white px-3 shadow-xl transition-transform duration-300 ease-in-out md:block md:w-60 lg:w-60`}
+        }  h-[480px] w-28 overflow-hidden bg-white px-3 shadow-xl transition-transform duration-300 ease-in-out md:block md:w-60 lg:w-60`}
       >
         <div className="mt-10 space-y-6 md:space-y-10">
           <h1 className="hidden text-center text-sm font-bold md:block md:text-xl">Admin Page</h1>

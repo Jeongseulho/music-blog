@@ -15,8 +15,8 @@ function PostManage() {
   } = usePostManage();
   return (
     <>
-      <div className="relative left-36 flex items-center justify-center">
-        <div className="container">
+      <div className="relative left-36 mt-24 flex items-center justify-center">
+        <div className="container overflow-auto">
           <table className="my-5 flex w-full table-fixed flex-col flex-nowrap overflow-hidden rounded-lg bg-white shadow-lg">
             <thead className="text-white">
               <tr className="mb-2 flex w-full flex-nowrap rounded-l-lg bg-teal-400 sm:mb-0 sm:table-row sm:rounded-none">

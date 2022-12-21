@@ -15,7 +15,7 @@ function App() {
   useGetUserIp();
   const darkMode = useSelector((state) => state.darkMode.value);
   return (
-    <div className={`${darkMode ? 'dark' : ''} h-screen w-screen`}>
+    <div className={`${darkMode ? 'dark' : ''} h-full `}>
       <BrowserRouter>
         <Header />
         <Routes>
