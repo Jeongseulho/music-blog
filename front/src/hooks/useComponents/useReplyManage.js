@@ -10,7 +10,7 @@ function useReplyManage() {
     });
   }, []);
 
-  return allReplyList;
+  return { allReplyList, setAllReplyList };
 }
 
 export default useReplyManage;

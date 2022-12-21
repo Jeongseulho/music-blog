@@ -3,7 +3,7 @@ import ReplyTableData from './ReplyTableData';
 import useReplyManage from '../../hooks/useComponents/useReplyManage';
 
 function ReplyManage() {
-  const allReplyList = useReplyManage();
+  const { allReplyList, setAllReplyList } = useReplyManage();
   return (
     <div className="relative left-36 flex items-center justify-center">
       <div className="container">
@@ -27,6 +27,7 @@ function ReplyManage() {
                 content={replyInfo.content}
                 userIp={replyInfo.userIp}
                 registerDate={replyInfo.registerDate}
+                setAllReplyList={setAllReplyList}
               />
             ))}
           </tbody>

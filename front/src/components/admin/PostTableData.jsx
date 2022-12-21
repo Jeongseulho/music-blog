@@ -19,7 +19,7 @@ function PostTableData({
       <td className=" w-[160px] border p-3 hover:bg-gray-100">{singer}</td>
       <td className=" w-[160px] border p-3 hover:bg-gray-100">{userIp}</td>
       <td className=" w-[160px] border p-3 hover:bg-gray-100">{formatDateTime(registerDate)}</td>
-      <td className=" cursor-pointer border p-3 text-red-400 hover:bg-gray-100 hover:font-medium hover:text-red-600">
+      <td className=" border p-3 text-red-400 hover:bg-gray-100 hover:font-medium hover:text-red-600">
         <button
           type="button"
           onClick={() => {
@@ -30,7 +30,7 @@ function PostTableData({
           Delete
         </button>
       </td>
-      <td className=" w-[70px] cursor-pointer border p-3 text-blue-400 hover:bg-gray-100 hover:font-medium hover:text-blue-600">
+      <td className=" w-[70px] border p-3 text-blue-400 hover:bg-gray-100 hover:font-medium hover:text-blue-600">
         <button
           type="button"
           onClick={() => {
