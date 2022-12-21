@@ -3,10 +3,11 @@ const db = require('../db');
 const router = express.Router();
 
 router.post('/', (req, res) => {
-  const { title, singer, content, userIp } = req.body;
+  console.log(req.body);
+  const { title, singer, content, userIp, image } = req.body;
   const sqlQuery =
-    'INSERT INTO POSTINFO (title, singer, content, userIp) VALUES (?,?,?,?)';
-  db.query(sqlQuery, [title, singer, content, userIp], (err, result) => {
+    'INSERT INTO POSTINFO (title, singer, content, image, userIp) VALUES (?,?,?,?,?)';
+  db.query(sqlQuery, [title, singer, content, image, userIp], (err, result) => {
     res.send(result);
   });
 });
@@ -21,7 +22,7 @@ router.get('/:postId', (req, res) => {
 
 router.put('/:postId', (req, res) => {
   const { title, singer, content, postId } = req.body;
-  const sqlQuery = `UPDATE POSTINFO SET title = '${title}', singer = '${singer}', content = '${content}' WHERE postId = ${postId}`;
+  const sqlQuery = `UPDATE POSTINFO SET title = '${title}', singer = '${singer}', content = '${content}', WHERE postId = ${postId}`;
   db.query(sqlQuery, (err, result) => {
     res.send(result);
   });

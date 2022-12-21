@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import postNewPost from '../../api/post/postNewPost';
@@ -13,15 +13,16 @@ function useAddPost() {
     navigate('/');
   }
 
+  const [imgList, setImgList] = useState([]);
+  const [currentImgIdx, setCurrentImgIdx] = useState(0);
+
   const [postInfo, setPostInfo] = useState({
     title: '',
     singer: '',
     content: '',
+    image: '',
     userIp,
   });
-
-  const [imgList, setImgList] = useState([]);
-  const [currentImgIdx, setCurrentImgIdx] = useState(0);
 
   const onChange = (e) => {
     setPostInfo((prevState) => ({
@@ -29,6 +30,13 @@ function useAddPost() {
       [e.target.id]: e.target.value,
     }));
   };
+
+  useEffect(() => {
+    setPostInfo((prevState) => ({
+      ...prevState,
+      image: imgList[currentImgIdx],
+    }));
+  }, [imgList, currentImgIdx]);
 
   const onAddPost = async (e) => {
     e.preventDefault();
