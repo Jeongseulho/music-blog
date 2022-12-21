@@ -1,20 +1,24 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import formatDateTime from '../../utils/formatDateTime';
 
 function ViewPostPopup({ currentPostInfo, setModalPopup }) {
+  const darkMode = useSelector((state) => state.darkMode.value);
   return (
     <button type="button" onClick={() => setModalPopup(false)}>
       <div className="absolute top-0 left-0 z-10 h-screen w-screen bg-slate-900/70 ">
         <div className="absolute left-1/2 top-20 flex w-full -translate-x-1/2 ">
           <div className=" flex flex-col items-center px-8 pt-10 ">
-            <article className=" mb-4 flex w-full flex-col rounded-xl border-4 border-gray-600 bg-white bg-clip-border p-6 sm:w-3/6">
+            <article
+              className={`${
+                darkMode ? 'dark' : ''
+              }  mb-4 flex w-full flex-col rounded-xl border-4 border-gray-600 bg-white bg-clip-border p-6 sm:w-3/6`}
+            >
               <div className="flex items-center justify-between pb-6">
-                <div className="flex">
-                  <div className="flex flex-col">
-                    <div />
-                    <div className="text-slate-500">
-                      {currentPostInfo.registerDate && formatDateTime(currentPostInfo.registerDate)}
-                    </div>
+                <div className="flex flex-col">
+                  <div />
+                  <div className="text-slate-500">
+                    {currentPostInfo.registerDate && formatDateTime(currentPostInfo.registerDate)}
                   </div>
                 </div>
               </div>

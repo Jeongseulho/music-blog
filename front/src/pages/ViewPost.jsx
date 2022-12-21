@@ -9,11 +9,7 @@ function ViewPost() {
   const { title, singer, content, registerDate } = postInfo;
 
   return (
-    <div
-      className={`${
-        darkMode ? 'dark' : ''
-      } flex h-screen w-screen flex-col items-center px-8 pt-10`}
-    >
+    <div className={`${darkMode ? 'dark' : ''} flex  flex-col items-center px-8 pt-10`}>
       <article
         className={`${
           darkMode ? 'dark' : ''

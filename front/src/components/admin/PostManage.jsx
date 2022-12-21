@@ -20,12 +20,12 @@ function PostManage() {
           <table className="my-5 flex w-full table-fixed flex-col flex-nowrap overflow-hidden rounded-lg bg-white shadow-lg">
             <thead className="text-white">
               <tr className="mb-2 flex w-full flex-nowrap rounded-l-lg bg-teal-400 sm:mb-0 sm:table-row sm:rounded-none">
-                <th className=" p-2 text-center">ID</th>
+                <th className=" p-2 pr-3 text-center">ID</th>
                 <th className=" p-3 px-16 text-center">제목</th>
                 <th className=" p-3 px-16 text-center">가수</th>
                 <th className=" p-3 px-12 text-center">작성자 IP</th>
                 <th className=" p-3 px-12 text-center">등록일자</th>
-                <th className=" p-3 px-[2.6rem] text-center">actions</th>
+                <th className=" p-3 px-[2.7rem] text-center">actions</th>
               </tr>
             </thead>
             <tbody className="sm:flex-none">

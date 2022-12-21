@@ -10,7 +10,7 @@ function ReplyManage() {
         <table className="my-5 flex w-full table-fixed flex-col flex-nowrap overflow-hidden rounded-lg bg-white shadow-lg">
           <thead className="text-white">
             <tr className="mb-2 flex w-full flex-nowrap rounded-l-lg bg-teal-400 sm:mb-0 sm:table-row sm:rounded-none">
-              <th className=" p-3 text-left">ID</th>
+              <th className=" p-2 pr-4 text-left">ID</th>
               <th className=" p-3 text-left">해당 글 ID</th>
               <th className=" p-3 px-36 text-left">내용</th>
               <th className=" p-3 px-16 text-left">작성자 IP</th>
