@@ -28,4 +28,11 @@ router.get('/:postId', (req, res) => {
   });
 });
 
+router.get('/:replyId', (req, res) => {
+  const sqlQuery = 'DELETE FROM replyinfo WHERE replyId = ?';
+  db.query(sqlQuery, req.params.replyId, (err, result) => {
+    res.send(result);
+  });
+});
+
 module.exports = router;
