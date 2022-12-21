@@ -4,7 +4,7 @@ import useViewPost from '../hooks/usePages/useViewPost';
 import Reply from '../components/etc/Reply';
 
 function ViewPost() {
-  const { postInfo, onChange, onAddReply, replyList, currentUserIp } = useViewPost();
+  const { postInfo, onChange, onAddReply, replyList, currentUserIp, onDelReply } = useViewPost();
   const { title, singer, content, registerDate } = postInfo;
 
   return (
@@ -50,11 +50,13 @@ function ViewPost() {
         {replyList.map((reply) => (
           <Reply
             key={reply.replyId}
+            replyId={reply.replyId}
             content={reply.content}
             registerDate={reply.registerDate}
             userIp={reply.userIp}
             postUserIp={postInfo.userIp}
             currentUserIp={currentUserIp}
+            onDelReply={onDelReply}
           />
         ))}
       </article>

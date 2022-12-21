@@ -4,6 +4,7 @@ import useCurrentUserIp from '../etc/useCurrentUserIp';
 import getPost from '../../api/post/getPost';
 import postReply from '../../api/reply/postReply';
 import getReplyList from '../../api/reply/getReplyList';
+import deleteReply from '../../api/reply/deleteReply';
 
 function useViewPost() {
   const params = useParams();
@@ -62,7 +63,16 @@ function useViewPost() {
     setReplyList((prevState) => [...prevState, { ...replyInfo, replyId: prevState.length + 1 }]);
   };
 
-  return { postInfo, onChange, onAddReply, replyList, currentUserIp };
+  const onDelReply = async (replyId) => {
+    deleteReply(replyId).then((res) => {
+      if (res === null) {
+        alert('댓글 삭제 실패');
+      }
+    });
+    setReplyList((prevState) => prevState.filter((reply) => reply.replyId !== replyId));
+  };
+
+  return { postInfo, onChange, onAddReply, replyList, currentUserIp, onDelReply };
 }
 
 export default useViewPost;

@@ -1,7 +1,7 @@
 import React from 'react';
 import formatDateTime from '../../utils/formatDateTime';
 
-function Reply({ content, registerDate, userIp, postUserIp, currentUserIp }) {
+function Reply({ replyId, content, registerDate, userIp, postUserIp, currentUserIp, onDelReply }) {
   return (
     <div className="pt-6">
       <div className="flex pb-4">
@@ -16,6 +16,7 @@ function Reply({ content, registerDate, userIp, postUserIp, currentUserIp }) {
             {currentUserIp === userIp && (
               <button
                 type="button"
+                onClick={() => onDelReply(replyId)}
                 className=" ml-2 inline-flex h-6 items-center space-x-1 rounded-lg border border-slate-200 bg-white p-2 text-sm font-medium text-slate-800 hover:bg-slate-100 hover:text-blue-600"
               >
                 <span>
