@@ -1,12 +1,11 @@
 import React from 'react';
 import useAddPost from '../hooks/usePages/useAddPost';
-import getImgSaerch from '../api/etc/getImgSearch';
 
 function AddPost() {
-  const { onChange, onAddPost, darkMode, postInfo } = useAddPost();
+  const { onChange, onAddPost, darkMode, onSearchImg, imgList } = useAddPost();
 
   return (
-    <div className="mx-auto h-[80%] w-full max-w-lg rounded-md border border-gray-600 py-4 px-10 ">
+    <div className="mx-auto h-[85%] w-full max-w-lg rounded-md border border-gray-600 py-4 px-10 ">
       <h1 className="text-4xl font-medium">post recommended song</h1>
       <form onSubmit={onAddPost} className="mt-10" autoComplete="off">
         <div className="grid gap-6 sm:grid-cols-2">
@@ -44,21 +43,26 @@ function AddPost() {
               singer
             </label>
           </div>
-          <div className="w-[420px]">
+          <div className="h-[420px] w-[420px]">
             <img
-              src="https://images.pexels.com/photos/92866/pexels-photo-92866.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+              className="h-3/4 w-full object-scale-down"
+              src={
+                imgList[0]
+                  ? imgList[0]
+                  : 'https://images.pexels.com/photos/92866/pexels-photo-92866.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
+              }
               alt="이미지 준비중"
             />
             <button
               type="button"
-              onClick={() => getImgSaerch(postInfo)}
+              onClick={() => onSearchImg()}
               className="mt-5 rounded-md bg-gray-700 px-10 py-2 text-white duration-500 hover:bg-black"
             >
               search image
             </button>
           </div>
 
-          <div className="relative z-0 col-span-2">
+          <div className="relative bottom-16 col-span-2 mt-4">
             <textarea
               id="content"
               name="content"
@@ -78,7 +82,7 @@ function AddPost() {
         </div>
         <button
           type="submit"
-          className="mt-5 rounded-md bg-gray-700 px-10 py-2 text-white duration-500 hover:bg-black"
+          className=" relative bottom-12 mt-5 rounded-md bg-gray-700 px-10 py-2 text-white duration-500 hover:bg-black"
         >
           posting
         </button>

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import postNewPost from '../../api/post/postNewPost';
+import getImgSaerch from '../../api/etc/getImgSearch';
 
 function useAddPost() {
   const navigate = useNavigate();
@@ -18,6 +19,8 @@ function useAddPost() {
     content: '',
     userIp,
   });
+
+  const [imgList, setImgList] = useState([]);
 
   const onChange = (e) => {
     setPostInfo((prevState) => ({
@@ -43,11 +46,20 @@ function useAddPost() {
 
   const darkMode = useSelector((state) => state.darkMode.value);
 
+  const onSearchImg = async () => {
+    const res = await getImgSaerch(postInfo);
+    if (res === null) return;
+    const imgLinkList = res.data.items.map((item) => item.link);
+    setImgList(imgLinkList);
+  };
+
   return {
     onChange,
     onAddPost,
     darkMode,
     postInfo,
+    imgList,
+    onSearchImg,
   };
 }
 
