@@ -44,6 +44,13 @@ function useViewPost() {
     });
   }, []);
 
+  useEffect(() => {
+    setReplyInfo((prevState) => ({
+      ...prevState,
+      userIp: currentUserIp,
+    }));
+  }, [currentUserIp]);
+
   const onChange = (e) => {
     setReplyInfo((prevState) => ({
       ...prevState,
