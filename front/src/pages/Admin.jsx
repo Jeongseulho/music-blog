@@ -4,8 +4,6 @@ import useAdmin from '../hooks/usePages/useAdmin';
 function Admin() {
   const { tabs, currentTab, setCurrentTab, darkMode } = useAdmin();
 
-  // how to stretch height of div arcoding to the height of the content
-  // https://stackoverflow.com/questions/11781624/how-to-stretch-height-of-div-according-to-the-height-of-the-content
   return (
     <div id="view" className={`${darkMode ? 'dark' : ''} flex h-fit `}>
       <div

@@ -41,12 +41,13 @@ function useAddPost() {
     navigate('/');
   };
 
-  const darkMode = useSelector((state) => state.darkMode);
+  const darkMode = useSelector((state) => state.darkMode.value);
 
   return {
     onChange,
     onAddPost,
     darkMode,
+    postInfo,
   };
 }
 

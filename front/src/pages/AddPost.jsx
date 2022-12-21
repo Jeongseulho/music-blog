@@ -1,11 +1,12 @@
 import React from 'react';
 import useAddPost from '../hooks/usePages/useAddPost';
+import getImgSaerch from '../api/etc/getImgSearch';
 
 function AddPost() {
-  const { onChange, onAddPost, darkMode } = useAddPost();
+  const { onChange, onAddPost, darkMode, postInfo } = useAddPost();
 
   return (
-    <div className="mx-auto h-3/4 w-full max-w-lg rounded-md border border-gray-600 py-4 px-10 ">
+    <div className="mx-auto h-[80%] w-full max-w-lg rounded-md border border-gray-600 py-4 px-10 ">
       <h1 className="text-4xl font-medium">post recommended song</h1>
       <form onSubmit={onAddPost} className="mt-10" autoComplete="off">
         <div className="grid gap-6 sm:grid-cols-2">
@@ -16,7 +17,7 @@ function AddPost() {
               name="title"
               className={`${
                 darkMode ? 'dark' : ''
-              }  block w-full appearance-none border-0 border-b border-gray-500 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0`}
+              } block w-full appearance-none border-0 border-b border-gray-500 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0`}
               onChange={onChange}
             />
             <label
@@ -48,6 +49,13 @@ function AddPost() {
               src="https://images.pexels.com/photos/92866/pexels-photo-92866.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
               alt="이미지 준비중"
             />
+            <button
+              type="button"
+              onClick={() => getImgSaerch(postInfo)}
+              className="mt-5 rounded-md bg-gray-700 px-10 py-2 text-white duration-500 hover:bg-black"
+            >
+              search image
+            </button>
           </div>
 
           <div className="relative z-0 col-span-2">
@@ -70,7 +78,7 @@ function AddPost() {
         </div>
         <button
           type="submit"
-          className="mt-10 rounded-md bg-gray-700 px-10 py-2 text-white duration-500 hover:bg-black"
+          className="mt-5 rounded-md bg-gray-700 px-10 py-2 text-white duration-500 hover:bg-black"
         >
           posting
         </button>

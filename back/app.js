@@ -25,3 +25,6 @@ app.use('/post', post);
 
 const reply = require('./routes/reply');
 app.use('/reply', reply);
+
+const img = require('./routes/img');
+app.use('/img', img);
