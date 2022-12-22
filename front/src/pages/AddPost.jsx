@@ -47,7 +47,7 @@ function AddPost() {
           <div className="h-[420px] w-[420px]">
             <img
               className="h-3/4 w-full object-scale-down"
-              src={imgList[currentImgIdx] ? imgList[currentImgIdx] : ''}
+              src={imgList[currentImgIdx] || ''}
               alt="이미지 준비중"
             />
             <div className="flex justify-between ">
