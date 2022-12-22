@@ -15,7 +15,7 @@ function ReplyManage() {
               <th className=" p-3 px-36 text-left">내용</th>
               <th className=" p-3 px-16 text-left">작성자 IP</th>
               <th className=" p-3 px-9 text-left">등록일자</th>
-              <th className=" p-3 text-left">action</th>
+              <th className=" p-3 px-[0.5rem] text-left">action</th>
             </tr>
           </thead>
           <tbody className="sm:flex-none">

@@ -1,0 +1,43 @@
+import formatDateTime from './formatDateTime';
+
+function getLast7days() {
+  const last7days = [];
+  for (let i = 0; i < 7; i += 1) {
+    const date = new Date();
+    date.setDate(date.getDate() - i);
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+    const dateString = `${year}-${month}-${day}`;
+    last7days.push(dateString);
+  }
+  return last7days;
+}
+
+function countPerDay(list) {
+  const data = [];
+  const last7days = getLast7days();
+  const count = [0, 0, 0, 0, 0, 0, 0];
+  const registerDateList = list.map((item) => formatDateTime(item.registerDate).split(' ')[0]);
+
+  for (let i = 0; i < last7days.length; i += 1) {
+    for (let j = 0; j < registerDateList.length; j += 1) {
+      if (last7days[i] === registerDateList[j]) {
+        count[i] += 1;
+      }
+    }
+  }
+  last7days.reverse();
+  count.reverse();
+  for (let i = 0; i < last7days.length; i += 1) {
+    const obj = {
+      x: last7days[i],
+      y: count[i],
+    };
+    data.push(obj);
+  }
+
+  return data;
+}
+
+export default countPerDay;
