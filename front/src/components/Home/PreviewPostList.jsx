@@ -9,7 +9,7 @@ function PreviewPostList() {
 
   return (
     <>
-      <main className=" ml-24 flex flex-wrap">
+      <main className=" ml-24 flex flex-wrap ">
         {currentPostList.map((postInfo) => (
           <PreviewPost
             key={postInfo.postId}
@@ -17,6 +17,7 @@ function PreviewPostList() {
             title={postInfo.title}
             singer={postInfo.singer}
             userIp={postInfo.userIp}
+            image={postInfo.image}
             registerDate={postInfo.registerDate}
             setPostInfoList={setPostInfoList}
           />

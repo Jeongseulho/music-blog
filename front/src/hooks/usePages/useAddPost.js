@@ -62,6 +62,17 @@ function useAddPost() {
     setImgList(imgLinkList);
   };
 
+  const onOtherImg = () => {
+    if (imgList.length === 0) {
+      alert('이미지를 먼저 검색해주세요');
+      return;
+    }
+    setCurrentImgIdx((prev) => {
+      if (prev === 9) return 0;
+      return prev + 1;
+    });
+  };
+
   return {
     onChange,
     onAddPost,
@@ -70,7 +81,7 @@ function useAddPost() {
     imgList,
     onSearchImg,
     currentImgIdx,
-    setCurrentImgIdx,
+    onOtherImg,
   };
 }
 

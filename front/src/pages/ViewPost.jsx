@@ -6,7 +6,7 @@ import Reply from '../components/etc/Reply';
 function ViewPost() {
   const { postInfo, onChange, onAddReply, replyList, currentUserIp, onDelReply, darkMode } =
     useViewPost();
-  const { title, singer, content, registerDate } = postInfo;
+  const { title, singer, content, image, registerDate } = postInfo;
 
   return (
     <div className={`${darkMode ? 'dark' : ''} flex  flex-col items-center px-8 pt-10`}>
@@ -28,11 +28,7 @@ function ViewPost() {
         </h2>
         <div className="py-4">
           <div className="mb-1 flex justify-between gap-1">
-            <img
-              alt="이미지 준비중"
-              className="max-w-full rounded-tl-lg"
-              src="https://images.pexels.com/photos/92866/pexels-photo-92866.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-            />
+            <img alt="이미지 준비중" className="max-w-full rounded-tl-lg" src={image} />
           </div>
           <div className="flex justify-between gap-1" />
         </div>

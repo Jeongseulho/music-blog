@@ -2,7 +2,7 @@ import React from 'react';
 import useAddPost from '../hooks/usePages/useAddPost';
 
 function AddPost() {
-  const { onChange, onAddPost, darkMode, onSearchImg, imgList, currentImgIdx, setCurrentImgIdx } =
+  const { onChange, onAddPost, darkMode, onSearchImg, imgList, currentImgIdx, onOtherImg } =
     useAddPost();
 
   return (
@@ -47,11 +47,7 @@ function AddPost() {
           <div className="h-[420px] w-[420px]">
             <img
               className="h-3/4 w-full object-scale-down"
-              src={
-                imgList[currentImgIdx]
-                  ? imgList[currentImgIdx]
-                  : 'https://images.pexels.com/photos/92866/pexels-photo-92866.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
-              }
+              src={imgList[currentImgIdx] ? imgList[currentImgIdx] : ''}
               alt="이미지 준비중"
             />
             <div className="flex justify-between ">
@@ -64,12 +60,7 @@ function AddPost() {
               </button>
               <button
                 type="button"
-                onClick={() =>
-                  setCurrentImgIdx((prev) => {
-                    if (prev === 9) return 0;
-                    return prev + 1;
-                  })
-                }
+                onClick={onOtherImg}
                 className="mt-5 rounded-md bg-gray-700 px-10 py-2 text-white duration-500 hover:bg-black"
               >
                 다른 이미지

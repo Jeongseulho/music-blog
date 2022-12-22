@@ -5,7 +5,7 @@ import useCurrentUserIp from '../../hooks/etc/useCurrentUserIp';
 import formatDateTime from '../../utils/formatDateTime';
 import PreviewPostBtn from './PreviewPostBtn';
 
-function PreviewPost({ title, singer, registerDate, postId, userIp, setPostInfoList }) {
+function PreviewPost({ title, singer, registerDate, postId, image, userIp, setPostInfoList }) {
   const currentUserIp = useCurrentUserIp();
   const darkMode = useSelector((state) => state.darkMode.value);
   return (
@@ -14,9 +14,9 @@ function PreviewPost({ title, singer, registerDate, postId, userIp, setPostInfoL
         <Link to={`/view-post/${postId}`}>
           <div className="relative block h-48 cursor-pointer overflow-hidden rounded">
             <img
-              alt="ecommerce"
-              className="block h-full w-full object-cover object-center"
-              src="https://dummyimage.com/420x260"
+              alt="이미지 준비중"
+              className="block h-[192px] w-[310px] object-cover object-center"
+              src={image}
             />
           </div>
           <div className="mt-4">

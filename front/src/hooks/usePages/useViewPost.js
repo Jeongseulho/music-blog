@@ -18,6 +18,7 @@ function useViewPost() {
       title: '',
       singer: '',
       content: '',
+      image: '',
       userIp: '',
       registerDate: '',
     },
