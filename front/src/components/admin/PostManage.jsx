@@ -12,12 +12,18 @@ function PostManage() {
     setModalPopup,
     setCurrentPostId,
     currentPostInfo,
+    loading,
   } = usePostManage();
+
   return (
     <>
       <div className="relative left-36 mt-24 flex items-center justify-center">
-        <div className="container overflow-auto">
-          <table className="my-5 flex w-full table-fixed flex-col flex-nowrap overflow-hidden rounded-lg bg-white shadow-lg">
+        <div
+          className={`${
+            loading ? 'opacity-0' : 'opacity-100'
+          } container overflow-auto duration-500 ease-linear`}
+        >
+          <table className="my-5 flex w-full table-fixed flex-col flex-nowrap overflow-hidden rounded-lg bg-white shadow-lg ease-in-out">
             <thead className="text-white">
               <tr className="mb-2 flex w-full flex-nowrap rounded-l-lg bg-teal-400 sm:mb-0 sm:table-row sm:rounded-none">
                 <th className=" p-2 pr-3 text-center">ID</th>
