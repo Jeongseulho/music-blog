@@ -1,22 +1,22 @@
 import formatDateTime from './formatDateTime';
 
-function getLast7days() {
+function getLast7days(today) {
   const last7days = [];
   for (let i = 0; i < 7; i += 1) {
-    const date = new Date();
-    date.setDate(date.getDate() - i);
-    const year = date.getFullYear();
-    const month = date.getMonth() + 1;
-    const day = date.getDate();
+    const copiedToday = new Date(today.getTime());
+    copiedToday.setDate(copiedToday.getDate() - i);
+    const year = copiedToday.getFullYear();
+    const month = copiedToday.getMonth() + 1;
+    const day = copiedToday.getDate();
     const dateString = `${year}-${month}-${day}`;
     last7days.push(dateString);
   }
   return last7days;
 }
 
-function countPerDay(list) {
+function countPerDay(list, today) {
   const data = [];
-  const last7days = getLast7days();
+  const last7days = getLast7days(today);
   const count = [0, 0, 0, 0, 0, 0, 0];
   const registerDateList = list.map((item) => formatDateTime(item.registerDate).split(' ')[0]);
 
@@ -40,4 +40,5 @@ function countPerDay(list) {
   return data;
 }
 
+export { getLast7days };
 export default countPerDay;

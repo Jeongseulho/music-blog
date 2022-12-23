@@ -16,8 +16,9 @@ function useAnalysis() {
     });
   }, []);
 
-  const postData = countPerDay(postInfoList);
-  const replyData = countPerDay(replyInfoList);
+  const today = new Date();
+  const postData = countPerDay(postInfoList, today);
+  const replyData = countPerDay(replyInfoList, today);
 
   const data = [
     {
