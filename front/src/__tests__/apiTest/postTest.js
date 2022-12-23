@@ -18,7 +18,7 @@ describe('getPost test', () => {
           tite: 'title-test1',
           singer: 'singer-test1',
           content: 'content-test1',
-          userIp: null,
+          userIp: '0.0.0.0',
           registerDate: '2022-12-11T05:00:24.000Z',
         },
       ],
