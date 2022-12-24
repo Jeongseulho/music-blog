@@ -30,7 +30,7 @@ function ViewPostPopup({ currentPostInfo, setModalPopup }) {
                   <img
                     alt="이미지 준비중"
                     className="max-w-full rounded-tl-lg"
-                    src="https://images.pexels.com/photos/92866/pexels-photo-92866.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                    src={currentPostInfo.image || ''}
                   />
                 </div>
                 <div className="flex justify-between gap-1" />
