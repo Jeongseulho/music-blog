@@ -10,7 +10,7 @@ function usePreviewPostList() {
 
   useEffect(() => {
     getList().then((res) => {
-      setPostInfoList(res.data);
+      setPostInfoList(res.data.reverse());
     });
   }, []);
 
