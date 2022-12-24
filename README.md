@@ -202,11 +202,13 @@ $ npm start
   - 해당 댓글 작성한 ip와 동일한 경우에만 삭제 가능  
     <br>
 
-- 관리자 페이지에서 댓글 삭제 ![제목 없는 동영상 - Clipchamp로 제작](https://user-images.githubusercontent.com/110578739/209432331-da0efb88-d9de-4cb2-aaa4-d832c0be72c0.gif)  
-  <br>
+- 관리자 페이지에서 댓글 삭제  
+  ![제목 없는 동영상 - Clipchamp로 제작](https://user-images.githubusercontent.com/110578739/209432331-da0efb88-d9de-4cb2-aaa4-d832c0be72c0.gif)  
+   <br>
 
-- 관리자 페이지에서 글 미리보기 및 삭제 ![관리자페이지 글삭제 - Clipchamp로 제작](https://user-images.githubusercontent.com/110578739/209432332-e12b68c3-7507-4130-b4de-97d1ae141472.gif)  
-  <br>
+- 관리자 페이지에서 글 미리보기 및 삭제  
+  ![관리자페이지 글삭제 - Clipchamp로 제작](https://user-images.githubusercontent.com/110578739/209432332-e12b68c3-7507-4130-b4de-97d1ae141472.gif)  
+   <br>
 
 - 차트로 최근 7일간 등록된 댓글 수, 글 수 보여주기  
   <img width="1280" alt="image" src="https://user-images.githubusercontent.com/110578739/209432716-15331d1f-2f20-47a2-b0f5-e4e61aac18b5.png"> <br>
