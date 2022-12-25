@@ -14,6 +14,7 @@ function PostTableData({
   setCurrentPostId,
 }) {
   const darkMode = useSelector((state) => state.darkMode.value);
+
   return (
     <tr className={`${darkMode ? 'dark' : ''} mb-0 table-row text-center`}>
       <td className=" border p-3 ">{postId}</td>
